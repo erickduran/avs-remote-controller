@@ -4,7 +4,7 @@ En este archivo se documentarán todos los cambios relevantes realizados en todo
 ## 2019-03-04 - System Circuit AVS-6
 Se diseñó el circuito para el sistema de infrarojos, esto para integrarlo al sistema de Synaptics AudioSmart.
 
-![Circuito](avs-remote-controller/docs/img/01-circuit.png)
+![Circuito](https://raw.githubusercontent.com/erickduran/avs-remote-controller/develop/docs/img/01-circuit.png)
 
 ## 2019-02-26 - AVS-2, AVS-3 y AVS-4
 Se instalaron los certificados necesarios para el funcionamiento dentro de la red de CETYS Universidad. El archivo `cert.crt` fue colocado en la carpeta `/usr/share/ca-certificates` y se ejecutaron los siguietnes comandos para instalarlo:
