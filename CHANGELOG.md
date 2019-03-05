@@ -4,11 +4,15 @@ En este archivo se documentarán todos los cambios relevantes realizados en todo
 ## 2019-03-04 - AVS-5
 Se creó la estructura general del proyecto en el repositorio, las únicas dependencias necesarias hasta el momento son la librería __click__. Comando para instalación:
 
-```pip install click```
+```bash
+pip install click
+```
 
 Así pues, se definió el primer modo de ejecución (modo "cli"), el cual peuede ser ejecutado de la siguiente manera:
 
-```python main.py cli```
+```bash
+python main.py cli
+```
 
 ## 2019-03-04 - System Circuit AVS-6
 Se diseñó el circuito para el sistema de infrarojos, esto para integrarlo al sistema de Synaptics AudioSmart.
