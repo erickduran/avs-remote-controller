@@ -1,4 +1,4 @@
-# Changelog
+﻿# Changelog
 En este archivo se documentarán todos los cambios relevantes realizados en todos los ambientes para el desarrollo del presente proyecto. Esto incluye tanto instalaciones como desarrollo del código.
 
 ## 2019-02-26 - AVS-2, AVS-3 y AVS-4
@@ -30,3 +30,4 @@ network={
 ```
 ## 2019-03-04 - System Circuit
 Se diseño el circuito para el sistema de infrarojos, esto para integrarlo al sistema de audiosmart.
+![Circuito](C:\Users\ash_g\OneDrive\Documentos\GitHub\avs-remote-controller\docs\img\pi circuit.png)
