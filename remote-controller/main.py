@@ -2,11 +2,9 @@
 # -*- coding: utf-8 -*-
 import click
 import os
+import sys
 
 from remote_controller.ir_controller import IRController
-
-dir = os.path.dirname(__file__)
-
 
 @click.command()
 @click.argument('mode')
