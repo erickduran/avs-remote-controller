@@ -28,3 +28,5 @@ network={
     phase2="auth=MSCHAPv2"
 }
 ```
+## 2019-03-04 - System Circuit
+Se diseño el circuito para el sistema de infrarojos, esto para integrarlo al sistema de audiosmart.
