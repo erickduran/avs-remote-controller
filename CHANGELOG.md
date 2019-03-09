@@ -48,7 +48,7 @@ Agregar la siguiente configuración en `/boot/config.txt`:
 dtoverlay=lirc-rpi,gpio_in_pin=23,gpio_out_pin=22
 ```
 
-Agregar la siguiente configuración en `/boot/config.txt`:
+Agregar la siguiente configuración en `/etc/modules`:
 ##### `/etc/modules`
 ```
 lirc_dev
