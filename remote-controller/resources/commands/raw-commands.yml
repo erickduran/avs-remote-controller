@@ -1,5 +1,15 @@
 commands:
-  KEY_POWER:
-    description: This command powers on/off the TV.
-  KEY_VOLUMEDOWN:
-    description: This command turns the volume down by a value of 1.
+    KEY_POWER:
+        description: This command powers on/off the TV.
+    KEY_VOLUMEDOWN:
+        description: This command turns the volume down by a value of 1.
+    KEY_VOLUMEUP:
+        description: This command turns the volume up by a value of 1.
+    KEY_CHANNELDOWN:
+        description: This command turns the channel down by a value of 1.
+    KEY_CHANNELUP:
+        description: This command turns the channel up by a value of 1.
+    KEY_MENU:
+        description: This command boots up the menu for the TV.
+    KEY_MODE:
+        description: This command changes the TV channel mode.
