@@ -1,0 +1,5 @@
+commands:
+  KEY_POWER:
+    description: This command powers on/off the TV.
+  KEY_VOLUMEDOWN:
+    description: This command turns the volume down by a value of 1.
