@@ -10,6 +10,12 @@ command_handler.load()
 @app.route('/', methods=['POST'])
 def index():
     response = dict()
+    if 'help' in request.json:
+        answer = command_handler.send('help {}'.format(request.json['help']))
+        response['status'] = answer[0]
+        response['message'] = answer[1]
+        return jsonify(response), 200
+
     if 'raw-command' not in request.json:
         response['status'] = 'ERROR'
         response['message'] = 'Please specify the raw-command param.'
@@ -28,7 +34,6 @@ def index():
 
     elif request.json['raw-command'] is False:
         if 'value' in request.json:
-            print('{} {}'.format(request.json['command'], str(request.json['value'])))
             answer = command_handler.send('{} {}'.format(request.json['command'], str(request.json['value'])))
         else:
             answer = command_handler.send(request.json['command'])
