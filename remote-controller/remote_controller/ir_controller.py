@@ -40,6 +40,7 @@ class IRController:
 
     def send_raw_command(self, command):
         print('Sending {} command...'.format(command))
+
         self.__command_validator.validate_raw(command)
         self.__ir_sender.send_raw(command)
 
