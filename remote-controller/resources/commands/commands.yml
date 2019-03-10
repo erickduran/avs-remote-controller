@@ -9,37 +9,37 @@ commands:
     description: This command changes de channel of the TV down.
     args: null
   OK:
-    description: placeholder
+    description: This command invokes the OK key.
     args: null
   LIST:
-    description: placeholder
+    description: This command invokes the LIST (channels) key.
     args: null
   UNDO:
-    description: placeholder
+    description: This command invokes the undo key.
     args: null
   BACK:
-    description: placeholder
+    description: This command goes back on the current screeen.
     args: null
   INFO:
-    description: placeholder
+    description: This command invokes the information key for the current screen.
     args: null
   EXIT:
-    description: placeholder
+    description: This command exits what ever is on screen.
     args: null
   MENU:
-    description: placeholder
+    description: This command boots up the menu for the TV.
     args: null
   MUTE:
-    description: placeholder
+    description: This command turns off the volume on the TV.
     args: null
   SETTINGS:
-    description: placeholder
+    description: This command opens the settings menu.
     args: null
   INPUT:
-    description: placeholder
+    description: This command opens the input source menu on the TV.
     args: null
   SCREEN_RATIO:
-    description: placeholder
+    description: This command changes the screen ratio on the TV.
     args: null
   CHANNEL:
     description: 'This command changes de channel of the TV to the specified value. Required args: channel number.'
@@ -62,17 +62,17 @@ commands:
       OPTIONAL: true
       VALUE: int
   MOVE_DOWN:
-    description: placeholder
+    description: 'This command uses the down arrow to a specified value. Optional args: value to move (int). Default is 1.'
     args: 
       OPTIONAL: true
       VALUE: int
   MOVE_LEFT:
-    description: placeholder
+    description: 'This command uses the left arrow to a specified value. Optional args: value to move (int). Default is 1.'
     args: 
       OPTIONAL: true
       VALUE: int
   MOVE_RIGHT:
-    description: placeholder
+    description: 'This command uses the right arrow to a specified value. Optional args: value to move (int). Default is 1.'
     args: 
       OPTIONAL: true
       VALUE: int

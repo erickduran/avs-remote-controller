@@ -28,7 +28,7 @@ def main(mode, device):
             else:
                 command = command.split(' ')
                 if len(command) > 1:
-                    ir.send_command(command[0], command[1])
+                    ir.send_command(command[0], value=command[1])
                 else:
                     ir.send_command(command[0])
 

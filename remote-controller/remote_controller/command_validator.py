@@ -1,3 +1,6 @@
+from .errors import InvalidCommandError, InvalidArgumentError
+
+
 class CommandValidator:
     def __init__(self, device, commands, raw_commands):
         self.__device = device
@@ -5,26 +8,19 @@ class CommandValidator:
         self.__raw_commands = raw_commands
 
     def validate_raw(self, command):
-        # just check if command exists in raw-commands.yml
-        if command in self.__raw_commands['commands'].keys():
-            print(command + " is a raw_command")
-        else:
-            pass
+        if command not in self.__raw_commands['commands'].keys():
+            raise InvalidCommandError('Command doesn\'t exist')
 
     def validate(self, command, value):
-        # check if command exists in commands.yml
-        # check if args are required
-        # check if value is an int when applies
+        if command not in self.__commands['commands'].keys():
+            raise InvalidCommandError('Command doesn\'t exist')
 
-        if command in self.__commands['commands'].keys():
-            print(command + " is a command")
-        try:
-            if(str.isdecimal(value) == False):
-                print("Given argument is not decimal")
-            if  self.__commands['commands'][command]['args']['OPTIONAL'] == False:
-                print("Command requiere argument")
-            else:
-                print("Command with optional arguments")
+        if self.__commands['commands'][command]['args']:
+            if self.__commands['commands'][command]['args']['OPTIONAL'] is False and value is None:
+                raise InvalidArgumentError('Command\'s argument is required')
 
-        except:
-            print("Command without optional arguments")
+            if value is not None:
+                try:
+                    int(value)
+                except ValueError:
+                    raise InvalidArgumentError('Command\'s argument must be interger')

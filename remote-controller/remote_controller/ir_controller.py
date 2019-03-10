@@ -2,6 +2,7 @@ import yaml
 
 from .command_validator import CommandValidator
 from .ir_sender import IRSender
+from .errors import Error
 
 
 class IRController:
@@ -9,7 +10,7 @@ class IRController:
         self.__device = device
         self.__raw_commands_path = './resources/commands/raw-commands.yml'
         self.__commands_path = './resources/commands/commands.yml'
-        self.__actions_path = './resources/commands/commands.yml'
+        self.__actions_path = './resources/commands/commands-actions.yml'
         self.__raw_commands = None
         self.__commands = None
         self.__actions = None
@@ -39,15 +40,22 @@ class IRController:
         self.__ir_sender = IRSender(self.__device, self.__actions)
 
     def send_raw_command(self, command):
-        print('Sending {} command...'.format(command))
-
-        self.__command_validator.validate_raw(command)
-        self.__ir_sender.send_raw(command)
+        print('Attempting {} command...'.format(command))
+        try:
+            self.__command_validator.validate_raw(command)
+            self.__ir_sender.send_raw(command)
+        except Error as error:
+            print('ERROR: {}'.format(error))
+        print('Command sent')
 
     def send_command(self, command, value=None):
-        print('Sending {} command...'.format(command))
-        self.__command_validator.validate(command, value)
-        self.__ir_sender.send(command, value)
+        print('Attempting {} command...'.format(command))
+        try:
+            self.__command_validator.validate(command, value)
+            self.__ir_sender.send(command, value)
+        except Error as error:
+            print('ERROR: {}'.format(error))
+        print('Command sent')
 
     def help(self, command):
         if command in self.__raw_commands['commands'].keys():

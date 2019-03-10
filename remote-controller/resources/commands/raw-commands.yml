@@ -9,7 +9,53 @@ commands:
         description: This command turns the channel down by a value of 1.
     KEY_CHANNELUP:
         description: This command turns the channel up by a value of 1.
+    KEY_UP:
+        description: This command invokes the UP selection arrow.
+    KEY_DOWN:
+        description: This command invokes the DOWN selection arrow.
+    KEY_LEFT:
+        description: This command invokes the LEFT selection arrow.
+    KEY_RIGHT:
+        description: This command invokes the RIGHT selection arrow.
+    KEY_OK:
+        description: This command invokes the OK key.
+    KEY_0:
+        description: This command invokes the 0 number key.
+    KEY_1:
+        description: This command invokes the 1 number key.
+    KEY_2:
+        description: This command invokes the 2 number key.
+    KEY_3:
+        description: This command invokes the 3 number key.
+    KEY_4:
+        description: This command invokes the 4 number key.
+    KEY_5:
+        description: This command invokes the 5 number key.
+    KEY_6:
+        description: This command invokes the 6 number key.
+    KEY_7:
+        description: This command invokes the 7 number key.
+    KEY_8:
+        description: This command invokes the 8 number key.
+    KEY_9:
+        description: This command invokes the 9 number key.
+    KEY_LIST:
+        description: This command invokes the LIST (channels) key.
+    KEY_UNDO:
+        description: This command invokes the undo key.
+    KEY_BACK:
+        description: This command goes back on the current screeen.
+    KEY_INFO:
+        description: This command invokes the information key for the current screen.
+    KEY_EXIT:
+        description: This command exits what ever is on screen.
     KEY_MENU:
         description: This command boots up the menu for the TV.
-    KEY_MODE:
-        description: This command changes the TV channel mode.
+    KEY_MUTE:
+        description: This command turns off the volume on the TV.
+    KEY_CONFIG:
+        description: This command opens the settings menu.
+    KEY_VIDEO:
+        description: This command opens the input source menu on the TV.
+    KEY_SCREEN:
+        description: This command changes the screen ratio on the TV.

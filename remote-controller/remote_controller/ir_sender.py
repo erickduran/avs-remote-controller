@@ -1,4 +1,7 @@
 import os
+import time
+
+from .errors import InvalidCompositeCommandError
 
 
 class IRSender:
@@ -10,10 +13,25 @@ class IRSender:
         os.system('irsend SEND_ONCE {} {}'.format(self.__device, command))
 
     def send(self, command, value):
-        # if not composite, just send parsed command
-        # if composite, use repetition or number logic to send command, apply waiting
-        pass
+        parsed = self.__parse(command)
+        if parsed[1] is None:
+            self.send_raw(parsed[0])
+        else:
+            if parsed[1] == 'number':
+                pass
+            elif parsed[1] == 'repetition':
+                if value is not None:
+                    for i in range(0, int(value)):
+                        self.send_raw(parsed[0])
+                        time.sleep(1)
+                else:
+                    self.send_raw(parsed[0])
+            else:
+                raise InvalidCompositeCommandError('Composite command configuration not understood')
 
     def __parse(self, command):
-        # get according raw command from commands-actions.yml
-        pass
+        raw = self.__actions['commands'][command]['raw-command']
+        if 'composite' in self.__actions['commands'][command].keys():
+            return raw, self.__actions['commands'][command]['composite']
+        else:
+            return raw, None
