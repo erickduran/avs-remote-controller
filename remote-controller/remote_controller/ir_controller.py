@@ -2,7 +2,7 @@ import yaml
 
 from .command_validator import CommandValidator
 from .ir_sender import IRSender
-from .errors import Error
+from .errors import InvalidCommandError
 
 
 class IRController:
@@ -41,26 +41,21 @@ class IRController:
 
     def send_raw_command(self, command):
         print('Attempting {} command...'.format(command))
-        try:
-            self.__command_validator.validate_raw(command)
-            self.__ir_sender.send_raw(command)
-            print('Command sent')
-        except Error as error:
-            print('ERROR: {}'.format(error))
+        self.__command_validator.validate_raw(command)
+        self.__ir_sender.send_raw(command)
 
     def send_command(self, command, value=None):
-        print('Attempting {} command...'.format(command))
-        try:
-            self.__command_validator.validate(command, value)
-            self.__ir_sender.send(command, value)
-            print('Command sent')
-        except Error as error:
-            print('ERROR: {}'.format(error))
+        if value:
+            print('Attempting {} command with value of {}...'.format(command, value))
+        else:
+            print('Attempting {} command...'.format(command))
+        self.__command_validator.validate(command, value)
+        self.__ir_sender.send(command, value)
 
     def help(self, command):
         if command in self.__raw_commands['commands'].keys():
-            print(self.__raw_commands['commands'][command]['description'])
+            return self.__raw_commands['commands'][command]['description']
         elif command in self.__commands['commands'].keys():
-            print(self.__commands['commands'][command]['description'])
+            return self.__commands['commands'][command]['description']
         else:
-            print('Command not found.')
+            raise InvalidCommandError('Command doesn\'t exist')
