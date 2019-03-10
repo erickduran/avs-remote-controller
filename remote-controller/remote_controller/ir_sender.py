@@ -2,8 +2,9 @@ import os
 
 
 class IRSender:
-    def __init__(self, device):
+    def __init__(self, device, actions):
         self.__device = device
+        self.__actions = actions
 
     def send_raw(self, command):
         os.system('irsend SEND_ONCE {} {}'.format(self.__device, command))

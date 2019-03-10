@@ -7,14 +7,14 @@ from .ir_sender import IRSender
 class IRController:
     def __init__(self, device):
         self.__device = device
-        self.__command_validator = CommandValidator(device)
-        self.__ir_sender = IRSender(device)
         self.__raw_commands_path = './resources/commands/raw-commands.yml'
         self.__commands_path = './resources/commands/commands.yml'
         self.__actions_path = './resources/commands/commands.yml'
         self.__raw_commands = None
         self.__commands = None
         self.__actions = None
+        self.__command_validator = None
+        self.__ir_sender = None
 
     def load_config(self):
         with open(self.__raw_commands_path, 'r') as stream:
@@ -34,6 +34,9 @@ class IRController:
                 self.__actions = yaml.load(stream)
             except yaml.YAMLError as exception:
                 print(exception)
+
+        self.__command_validator = CommandValidator(self.__device, self.__commands, self.__raw_commands)
+        self.__ir_sender = IRSender(self.__device, self.__actions)
 
     def send_raw_command(self, command):
         print('Sending {} command...'.format(command))
