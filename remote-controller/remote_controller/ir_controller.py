@@ -44,18 +44,18 @@ class IRController:
         try:
             self.__command_validator.validate_raw(command)
             self.__ir_sender.send_raw(command)
+            print('Command sent')
         except Error as error:
             print('ERROR: {}'.format(error))
-        print('Command sent')
 
     def send_command(self, command, value=None):
         print('Attempting {} command...'.format(command))
         try:
             self.__command_validator.validate(command, value)
             self.__ir_sender.send(command, value)
+            print('Command sent')
         except Error as error:
             print('ERROR: {}'.format(error))
-        print('Command sent')
 
     def help(self, command):
         if command in self.__raw_commands['commands'].keys():

@@ -18,7 +18,10 @@ class IRSender:
             self.send_raw(parsed[0])
         else:
             if parsed[1] == 'number':
-                pass
+                for char in value:
+                    command = 'KEY_{}'.format(char)
+                    self.send_raw(command)
+                    time.sleep(1)
             elif parsed[1] == 'repetition':
                 if value is not None:
                     for i in range(0, int(value)):
