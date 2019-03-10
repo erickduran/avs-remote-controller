@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import click
-import os
-import sys
 
 from remote_controller.ir_controller import IRController
 
