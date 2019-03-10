@@ -1,0 +1,78 @@
+commands:
+  POWER:
+    description: This command powers on/off the TV.
+    args: null
+  CHANNEL_UP:
+    description: This command changes de channel of the TV up.
+    args: null
+  CHANNEL_DOWN:
+    description: This command changes de channel of the TV down.
+    args: null
+  OK:
+    description: This command invokes the OK key.
+    args: null
+  LIST:
+    description: This command invokes the LIST (channels) key.
+    args: null
+  UNDO:
+    description: This command invokes the undo key.
+    args: null
+  BACK:
+    description: This command goes back on the current screeen.
+    args: null
+  INFO:
+    description: This command invokes the information key for the current screen.
+    args: null
+  EXIT:
+    description: This command exits what ever is on screen.
+    args: null
+  MENU:
+    description: This command boots up the menu for the TV.
+    args: null
+  MUTE:
+    description: This command turns off the volume on the TV.
+    args: null
+  SETTINGS:
+    description: This command opens the settings menu.
+    args: null
+  INPUT:
+    description: This command opens the input source menu on the TV.
+    args: null
+  SCREEN_RATIO:
+    description: This command changes the screen ratio on the TV.
+    args: null
+  CHANNEL:
+    description: 'This command changes de channel of the TV to the specified value. Required args: channel number.'
+    args: 
+      OPTIONAL: false
+      VALUE: int
+  VOLUME_UP:
+    description: 'This command changes de volume of the TV to the specified value. Optional args: value to increase. Default is 1.'
+    args: 
+      OPTIONAL: true
+      VALUE: int
+  VOLUME_DOWN:
+    description: 'This command changes de volume of the TV to the specified value. Optional args: value to decrease. Default is 1.'
+    args: 
+      OPTIONAL: true
+      VALUE: int
+  MOVE_UP:
+    description: 'This command uses the up arrow to a specified value. Optional args: value to move (int). Default is 1.'
+    args: 
+      OPTIONAL: true
+      VALUE: int
+  MOVE_DOWN:
+    description: 'This command uses the down arrow to a specified value. Optional args: value to move (int). Default is 1.'
+    args: 
+      OPTIONAL: true
+      VALUE: int
+  MOVE_LEFT:
+    description: 'This command uses the left arrow to a specified value. Optional args: value to move (int). Default is 1.'
+    args: 
+      OPTIONAL: true
+      VALUE: int
+  MOVE_RIGHT:
+    description: 'This command uses the right arrow to a specified value. Optional args: value to move (int). Default is 1.'
+    args: 
+      OPTIONAL: true
+      VALUE: int

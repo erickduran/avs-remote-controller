@@ -1,0 +1,50 @@
+commands:
+  POWER:
+    raw-command: KEY_POWER
+  CHANNEL_UP:
+    raw-command: KEY_CHANNELUP
+  CHANNEL_DOWN:
+    raw-command: KEY_CHANNELDOWN
+  OK:
+    raw-command: KEY_OK
+  LIST:
+    raw-command: KEY_LIST
+  UNDO:
+    raw-command: KEY_OK
+  BACK:
+    raw-command: KEY_BACK
+  INFO:
+    raw-command: KEY_INFO
+  EXIT:
+    raw-command: KEY_EXIT
+  MENU:
+    raw-command: KEY_MENU
+  MUTE:
+    raw-command: KEY_MUTE
+  SETTINGS:
+    raw-command: KEY_CONFIG
+  INPUT:
+    raw-command: KEY_VIDEO
+  SCREEN_RATIO:
+    raw-command: KEY_SCREEN
+  CHANNEL:
+    raw-command: KEY_
+    composite: number
+  VOLUME_UP:
+    raw-command: KEY_VOLUMEUP
+    composite: repetition
+  VOLUME_DOWN:
+    raw-command: KEY_VOLUMEDOWN
+    composite: repetition
+  MOVE_UP:
+    raw-command: KEY_UP
+    composite: repetition
+  MOVE_DOWN:
+    raw-command: KEY_DOWN
+    composite: repetition
+  MOVE_LEFT:
+    raw-command: KEY_LEFT
+    composite: repetition
+  MOVE_RIGHT:
+    raw-command: KEY_RIGHT
+    composite: repetition
