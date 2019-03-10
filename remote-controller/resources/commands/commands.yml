@@ -1,78 +1,78 @@
 commands:
   POWER:
-    desc: This command powers on/off the TV.
-  	args: null
+    description: This command powers on/off the TV.
+    args: null
   CHANNEL_UP:
-    desc: This command changes de channel of the TV up.
+    description: This command changes de channel of the TV up.
     args: null
   CHANNEL_DOWN:
-    desc: This command changes de channel of the TV down.
+    description: This command changes de channel of the TV down.
     args: null
   OK:
-  	desc: placeholder
+    description: placeholder
     args: null
   LIST:
-  	desc: placeholder
+    description: placeholder
     args: null
   UNDO:
-  	desc: placeholder
+    description: placeholder
     args: null
   BACK:
-  	desc: placeholder
+    description: placeholder
     args: null
   INFO:
-  	desc: placeholder
+    description: placeholder
     args: null
   EXIT:
-  	desc: placeholder
+    description: placeholder
     args: null
   MENU:
-  	desc: placeholder
+    description: placeholder
     args: null
   MUTE:
-  	desc: placeholder
+    description: placeholder
     args: null
   SETTINGS:
-  	desc: placeholder
+    description: placeholder
     args: null
   INPUT:
-  	desc: placeholder
+    description: placeholder
     args: null
   SCREEN_RATIO:
-  	desc: placeholder
+    description: placeholder
     args: null
   CHANNEL:
-    desc: 'This command changes de channel of the TV to the specified value. Required args: channel number.'
+    description: 'This command changes de channel of the TV to the specified value. Required args: channel number.'
     args: 
       OPTIONAL: false
       VALUE: int
   VOLUME_UP:
-    desc: 'This command changes de volume of the TV to the specified value. Optional args: value to increase. Default is 1.'
+    description: 'This command changes de volume of the TV to the specified value. Optional args: value to increase. Default is 1.'
     args: 
       OPTIONAL: true
       VALUE: int
   VOLUME_DOWN:
-    desc: 'This command changes de volume of the TV to the specified value. Optional args: value to decrease. Default is 1.'
+    description: 'This command changes de volume of the TV to the specified value. Optional args: value to decrease. Default is 1.'
     args: 
       OPTIONAL: true
       VALUE: int
   MOVE_UP:
-    desc: 'This command uses the up arrow to a specified value. Optional args: value to move (int). Default is 1.'
+    description: 'This command uses the up arrow to a specified value. Optional args: value to move (int). Default is 1.'
     args: 
       OPTIONAL: true
       VALUE: int
   MOVE_DOWN:
-    desc: placeholder
+    description: placeholder
     args: 
       OPTIONAL: true
       VALUE: int
   MOVE_LEFT:
-    desc: placeholder
+    description: placeholder
     args: 
       OPTIONAL: true
       VALUE: int
   MOVE_RIGHT:
-    desc: placeholder
+    description: placeholder
     args: 
       OPTIONAL: true
       VALUE: int
