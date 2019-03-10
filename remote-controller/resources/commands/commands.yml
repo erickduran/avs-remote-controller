@@ -1,6 +1,6 @@
 commands:
-	POWER:
-  	desc: This command powers on/off the TV.
+  POWER:
+    desc: This command powers on/off the TV.
   	args: null
   CHANNEL_UP:
     desc: This command changes de channel of the TV up.

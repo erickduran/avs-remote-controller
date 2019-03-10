@@ -15,6 +15,7 @@ def main(mode, device):
         print('Copyright (C) 2019 Sebastián Pérez, Cesar Torres and Erick Durán.')
 
         ir = IRController(device)
+        ir.load_config()
         while True:
             command = input('Please enter a command: ')
 
