@@ -31,6 +31,8 @@ def main(mode, device):
                     ir.send_command(command[0], value=command[1])
                 else:
                     ir.send_command(command[0])
+    elif mode == 'api':
+        print('API mode not yet implemented.')
 
 
 if __name__ == '__main__':
