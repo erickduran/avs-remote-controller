@@ -1,6 +1,6 @@
 commands:
-	POWER:
-  	raw-command: KEY_POWER
+  POWER:
+    raw-command: KEY_POWER
   CHANNEL_UP:
     raw-command: KEY_CHANNELUP
   CHANNEL_DOWN:

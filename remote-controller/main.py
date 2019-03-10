@@ -1,37 +1,33 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import click
 import os
-import sys
+import click
 
-from remote_controller.ir_controller import IRController
+from remote_controller.command_handler import CommandHandler
+
+dir = os.path.dirname(__file__)
+api_path = os.path.join(dir, 'api.py')
 
 @click.command()
 @click.argument('mode')
 @click.argument('device')
 def main(mode, device):
+    print('----- AVS Remote Controller -----')
+    print('Copyright (C) 2019 Sebastián Pérez, Cesar Torres and Erick Durán.')
     if mode == 'cli':
-        print('----- AVS Remote Controller -----')
-        print('Copyright (C) 2019 Sebastián Pérez, Cesar Torres and Erick Durán.')
-
-        ir = IRController(device)
+        command_handler = CommandHandler(device)
+        command_handler.load()
         while True:
             command = input('Please enter a command: ')
 
             if command == 'exit':
                 break
-            elif command.startswith('help'):
-                command = command.split(' ')[1]
-                ir.help(command)
-            elif command.startswith('raw'):
-                command = command.split(' ')[1]
-                ir.send_raw_command(command)
             else:
-                command = command.split(' ')
-                if len(command) > 1:
-                    ir.send_command(command[0], command[1])
-                else:
-                    ir.send_command(command[0])
+                response = command_handler.send(command)
+                print('{}: {}'.format(response[0], response[1]))
+
+    elif mode == 'api':
+        os.system('python3 {}'.format(api_path))
 
 
 if __name__ == '__main__':

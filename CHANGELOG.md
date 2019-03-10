@@ -1,6 +1,20 @@
 ﻿# Changelog
 En este archivo se documentarán todos los cambios relevantes realizados en todos los ambientes para el desarrollo del presente proyecto. Esto incluye tanto instalaciones como desarrollo del código.
 
+## 2019-03-10 - AVS-10 Código en Python
+Se implementó la primera versión del código en Python para interactuar con la televisión a través de comandos IR. Se agregó una dependencia:
+
+```bash
+pip3 install pyyaml
+```
+
+Para correr el modo interactivo implementado, es necesario correr el siguiente comando:
+```bash
+python3 main.py cli lg
+``` 
+
+La nueva interface permite enviar los comandos descritos en los archivos `remote-controller/resources/commands.yml` (simplificados) y `remote-controller/resources/raw-commands.yml` (directos a `lirc`). Los comandos simplificados permiten enviar argumentos adicionales, dependiendo de cada comando. Para verificar cada comando específicamente, ver sus archivos de configuración.
+
 ## 2019-03-09 - AVS-7, AVS-8 y AVS-9 Reconocimiento de señales IR
 Una vez configurado el sensor (receptor) IR, se realizó la primera configuración de los comandos para una televisión marca LG. A continuación se presenta el procedimiento que se siguió para lograr esto.
 
@@ -207,7 +221,7 @@ __NOTA: El servicio puede llamarse `lirc` o `lircd`, dependiendo de la instalaci
 
 ## 2019-03-04 - AVS-5 Dependencias
 Se creó la estructura general del proyecto en el repositorio, las únicas dependencias necesarias hasta el momento son la librería __click__. Comando para instalación:
-```pip install click```
+```pip3 install click```
 
 Así pues, se definió el primer modo de ejecución (modo "cli"), el cual peuede ser ejecutado de la siguiente manera:
 ```python main.py cli```
