@@ -1,10 +1,10 @@
 ﻿# Changelog
 En este archivo se documentarán todos los cambios relevantes realizados en todos los ambientes para el desarrollo del presente proyecto. Esto incluye tanto instalaciones como desarrollo del código.
 
-## 2019-03-09 - AVS-7 y AVS-8 Reconocimiento de señales IR
+## 2019-03-09 - AVS-7, AVS-8 y AVS-9 Reconocimiento de señales IR
 Una vez configurado el sensor (receptor) IR, se realizó la primera configuración de los comandos para una televisión marca LG. A continuación se presenta el procedimiento que se siguió para lograr esto.
 
-Para probar que el circuito con el receptor IR está funcionando, es posible probar esto primero deshabilitando el servicio:
+Para probar que el circuito con el receptor IR está funcionando, primero se deshabilita el servicio:
 
 ```bash
 sudo service lircd stop
@@ -16,7 +16,8 @@ Y ejecutando el siguiente comando:
 mode2 -d /dev/lirc0
 ```
 
-Al apuntar un control al receptor, pueden verse algunas salidas en consola:
+Al apuntar un control al receptor, pueden verse algunas salidas en consola.
+
 ![Salida](https://raw.githubusercontent.com/erickduran/avs-remote-controller/develop/docs/img/02-mode-output.png)
 
 Para agregar un nuevo control y almacenar comandos, es necesario ejecutar el siguiente comando:
@@ -121,7 +122,7 @@ Al copiar la configuración en la carpeta mencionada, `lirc` podrá consultarla 
 
 Una vez concluido esto, se pueden enviar las instrucciones a la televisión utilizando el siguiente comando:
 ```
-irsend SEND_ONCE [DEVICE_NAME] [COMMAND]
+irsend SEND_ONCE <DEVICE_NAME> <COMMAND>
 ```
 Para este caso, un ejemplo sería:
 ```
