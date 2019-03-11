@@ -48,5 +48,6 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run()
+    # Just for dev purposes, NOT RECOMMENDED
+    app.run(host='0.0.0.0')
 
