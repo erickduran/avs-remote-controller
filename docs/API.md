@@ -29,7 +29,7 @@ Como puede verse, algunos de estos comandos aceptan parámetros adicionales, los
 La lista completa de los comandos simples se pueden encontrar [aquí](https://github.com/erickduran/avs-remote-controller/blob/master/remote-controller/resources/commands/commands.yml).
 
 ## Peticiones
-En la etapa actual del proyecto, el API permite enviar peticiones `POST` al _endpoint_ __vcrc.erickduran.com:5000__. Las peticiones toman los siguientes parámetros como `body` en formato `application/json`:
+En la etapa actual del proyecto, el API permite enviar peticiones `POST` al _endpoint_ `http://vcrc.erickduran.com:55555`. Las peticiones toman los siguientes parámetros como `body` en formato `application/json`:
 - `raw-command`: booleano para indicar si se trata de un comando directo (`true`) o simple (`false`).
 - `command`: nombre del comando a enviar.
 - `value` (opcional): parámetro adicional para comandos que acepten valores. En caso de que no se especifique, se utilizará el valor por defecto.

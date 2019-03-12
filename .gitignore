@@ -105,3 +105,6 @@ venv.bak/
 
 # IDEA Files
 /.idea
+
+# log files
+*.log
