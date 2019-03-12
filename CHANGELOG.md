@@ -18,7 +18,7 @@ Se implementó una versión del modo `cli` que permite interactuar con el progra
 
 Para correr el _review_mode_ implementado, es necesario correr el siguiente comando:
 ```bash
-python3 main.py cli lg
+python3 main.py cli lg -r
 ``` 
 
 ## 2019-03-10 - AVS-10 Código en Python
