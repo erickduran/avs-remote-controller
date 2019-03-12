@@ -4,7 +4,7 @@ En este archivo se documentarán todos los cambios relevantes realizados en todo
 ## 2019-03-12 - AVS-5 Arquitectura general
 A continuación se presenta el diagrama de clases con la arquitectura general del presente proyecto:
 
-![Arquitectura](https://raw.githubusercontent.com/erickduran/avs-remote-controller/master/docs/img/03-class-diagram.jpg)
+![Arquitectura](https://raw.githubusercontent.com/erickduran/avs-remote-controller/master/docs/img/03-class-diagram.png)
 
 ## 2019-03-11 - AVS-28 REST API
 Se implementó la primera versión del API para enviar comandos desde clientes externos a la televisión. E
