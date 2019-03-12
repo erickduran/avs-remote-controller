@@ -35,3 +35,13 @@ class InvalidCompositeCommandError(Error):
 
     def __init__(self, message):
         self.message = message
+
+
+class FileNotLoadedError(Error):
+    """Exception raised when a file is not loaded.
+    Attributes:
+        message -- explanation of the error
+    """
+
+    def __init__(self, message):
+        self.message = message

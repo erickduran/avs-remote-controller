@@ -1,16 +1,18 @@
 import os
 import time
 
-from .errors import InvalidCompositeCommandError
+from .errors import InvalidCommandError, InvalidCompositeCommandError
 
 
 class IRSender:
-    def __init__(self, device, actions):
+    def __init__(self, device, actions, review_mode):
         self.__device = device
         self.__actions = actions
+        self.__review_mode = review_mode
 
     def send_raw(self, command):
-        os.system('irsend SEND_ONCE {} {}'.format(self.__device, command))
+        if not self.__review_mode:
+            os.system('irsend SEND_ONCE {} {}'.format(self.__device, command))
 
     def send(self, command, value):
         parsed = self.__parse(command)

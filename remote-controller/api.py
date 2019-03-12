@@ -1,9 +1,10 @@
+import logging
 from flask import Flask, jsonify, request
 
 from remote_controller.command_handler import CommandHandler
 
 app = Flask(__name__)
-command_handler = CommandHandler('lg')
+command_handler = CommandHandler('lg', True)
 command_handler.load()
 
 
@@ -48,6 +49,11 @@ def index():
 
 
 if __name__ == '__main__':
+    logger = logging.getLogger('werkzeug')
+    handler = logging.FileHandler('api.log')
+    logger.addHandler(handler)
+    app.logger.addHandler(handler)
+
     # Just for dev purposes, NOT RECOMMENDED
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=55555)
 

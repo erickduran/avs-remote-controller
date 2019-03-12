@@ -23,4 +23,12 @@ class CommandValidator:
                 try:
                     int(value)
                 except ValueError:
-                    raise InvalidArgumentError('Command\'s argument must be interger')
+                    raise InvalidArgumentError('Command\'s argument must be integer')
+
+    def exists(self, command):
+        if command in self.__raw_commands['commands'].keys():
+            return 'raw_command', command, self.__raw_commands['commands'][command]['description']
+        elif command in self.__commands['commands'].keys():
+            return 'command', command, self.__commands['commands'][command]['description']
+        else:
+            raise InvalidCommandError('Command doesn\'t exist')

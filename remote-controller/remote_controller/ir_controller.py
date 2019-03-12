@@ -2,42 +2,50 @@ import yaml
 
 from .command_validator import CommandValidator
 from .ir_sender import IRSender
-from .errors import InvalidCommandError
+from .errors import FileNotLoadedError
 
 
 class IRController:
-    def __init__(self, device):
+    def __init__(self, device, review_mode):
         self.__device = device
+        self.__review_mode = review_mode
         self.__raw_commands_path = './resources/commands/raw-commands.yml'
         self.__commands_path = './resources/commands/commands.yml'
         self.__actions_path = './resources/commands/commands-actions.yml'
-        self.__raw_commands = None
-        self.__commands = None
-        self.__actions = None
         self.__command_validator = None
         self.__ir_sender = None
 
     def load_config(self):
         with open(self.__raw_commands_path, 'r') as stream:
             try:
-                self.__raw_commands = yaml.load(stream)
+                raw_commands = yaml.load(stream)
             except yaml.YAMLError as exception:
+                raw_commands = None
                 print(exception)
 
         with open(self.__commands_path, 'r') as stream:
             try:
-                self.__commands = yaml.load(stream)
+                commands = yaml.load(stream)
             except yaml.YAMLError as exception:
+                commands = None
                 print(exception)
 
         with open(self.__actions_path, 'r') as stream:
             try:
-                self.__actions = yaml.load(stream)
+                actions = yaml.load(stream)
             except yaml.YAMLError as exception:
+                actions = None
                 print(exception)
 
-        self.__command_validator = CommandValidator(self.__device, self.__commands, self.__raw_commands)
-        self.__ir_sender = IRSender(self.__device, self.__actions)
+        if commands is not None and raw_commands is not None:
+            self.__command_validator = CommandValidator(self.__device, commands, raw_commands)
+        else:
+            raise FileNotLoadedError('Commands file not loaded correctly.')
+
+        if actions is not None:
+            self.__ir_sender = IRSender(self.__device, actions, self.__review_mode)
+        else:
+            raise FileNotLoadedError('Actions file not loaded correctly.')
 
     def send_raw_command(self, command):
         print('Attempting {} command...'.format(command))
@@ -53,9 +61,4 @@ class IRController:
         self.__ir_sender.send(command, value)
 
     def help(self, command):
-        if command in self.__raw_commands['commands'].keys():
-            return self.__raw_commands['commands'][command]['description']
-        elif command in self.__commands['commands'].keys():
-            return self.__commands['commands'][command]['description']
-        else:
-            raise InvalidCommandError('Command doesn\'t exist')
+        return self.__command_validator.exists(command)[2]

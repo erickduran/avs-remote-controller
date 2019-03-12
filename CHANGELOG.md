@@ -1,6 +1,26 @@
 ﻿# Changelog
 En este archivo se documentarán todos los cambios relevantes realizados en todos los ambientes para el desarrollo del presente proyecto. Esto incluye tanto instalaciones como desarrollo del código.
 
+## 2019-03-12 - AVS-5 Arquitectura general
+A continuación se presenta el diagrama de clases con la arquitectura general del presente proyecto:
+
+![Arquitectura](https://raw.githubusercontent.com/erickduran/avs-remote-controller/master/docs/img/03-class-diagram.jpg)
+
+## 2019-03-11 - AVS-28 REST API
+Se implementó la primera versión del API para enviar comandos desde clientes externos a la televisión. E
+
+El _endpoint_ público está disponible en `http://vcrc.erickduran.com:55555`.
+
+La documentación completa puede consultarse [aquí](https://github.com/erickduran/avs-remote-controller/blob/master/docs/API.md).
+
+## 2019-03-11 - AVS-30 Se implementó la versión _review_mode_
+Se implementó una versión del modo `cli` que permite interactuar con el programa sin emitir los comandos del hardware, con el objetivo de realizar pruebas locales y al público.
+
+Para correr el _review_mode_ implementado, es necesario correr el siguiente comando:
+```bash
+python3 main.py cli lg
+``` 
+
 ## 2019-03-10 - AVS-10 Código en Python
 Se implementó la primera versión del código en Python para interactuar con la televisión a través de comandos IR. Se agregó una dependencia:
 
@@ -32,7 +52,7 @@ mode2 -d /dev/lirc0
 
 Al apuntar un control al receptor, pueden verse algunas salidas en consola.
 
-![Salida](https://raw.githubusercontent.com/erickduran/avs-remote-controller/develop/docs/img/02-mode-output.png)
+![Salida](https://raw.githubusercontent.com/erickduran/avs-remote-controller/master/docs/img/02-mode-output.png)
 
 Para agregar un nuevo control y almacenar comandos, es necesario ejecutar el siguiente comando:
 ```bash
@@ -235,7 +255,7 @@ python main.py cli
 ## 2019-03-04 - AVS-6 Circuito principal
 Se diseñó el circuito para el sistema de infrarojos, esto para integrarlo al sistema de Synaptics AudioSmart.
 
-![Circuito](https://raw.githubusercontent.com/erickduran/avs-remote-controller/develop/docs/img/01-circuit.png)
+![Circuito](https://raw.githubusercontent.com/erickduran/avs-remote-controller/master/docs/img/01-circuit.png)
 
 ## 2019-02-26 - AVS-2, AVS-3 y AVS-4 Certificados e instalaciones
 Se instalaron los certificados necesarios para el funcionamiento dentro de la red de CETYS Universidad. El archivo `cert.crt` fue colocado en la carpeta `/usr/share/ca-certificates` y se ejecutaron los siguietnes comandos para instalarlo:
