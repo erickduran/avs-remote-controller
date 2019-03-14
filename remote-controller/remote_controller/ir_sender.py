@@ -1,7 +1,7 @@
 import os
 import time
 
-from .errors import InvalidCommandError, InvalidCompositeCommandError
+from .errors import InvalidCompositeCommandError
 
 
 class IRSender:
@@ -11,28 +11,32 @@ class IRSender:
         self.__review_mode = review_mode
 
     def send_raw(self, command):
+        bash_command = 'irsend SEND_ONCE {} {}'.format(self.__device, command)
         if not self.__review_mode:
-            os.system('irsend SEND_ONCE {} {}'.format(self.__device, command))
+            os.system(bash_command)
+        return [bash_command]
 
     def send(self, command, value):
+        bash_commands = []
         parsed = self.__parse(command)
         if parsed[1] is None:
-            self.send_raw(parsed[0])
+            return self.send_raw(parsed[0])
         else:
             if parsed[1] == 'number':
                 for char in value:
                     command = 'KEY_{}'.format(char)
-                    self.send_raw(command)
+                    bash_commands += self.send_raw(command)
                     time.sleep(1)
             elif parsed[1] == 'repetition':
                 if value is not None:
                     for i in range(0, int(value)):
-                        self.send_raw(parsed[0])
+                        bash_commands += self.send_raw(parsed[0])
                         time.sleep(1)
                 else:
-                    self.send_raw(parsed[0])
+                    return self.send_raw(parsed[0])
             else:
                 raise InvalidCompositeCommandError('Composite command configuration not understood')
+            return bash_commands
 
     def __parse(self, command):
         raw = self.__actions['commands'][command]['raw-command']
