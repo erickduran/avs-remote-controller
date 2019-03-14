@@ -1,36 +1,42 @@
+import os
+
 import yaml
 
 from .command_validator import CommandValidator
 from .ir_sender import IRSender
 from .errors import FileNotLoadedError
 
+dir = os.path.dirname(__file__)
+api_path = os.path.join(dir, 'api.py')
+
+RAW_COMMANDS_PATH = '../resources/commands/raw-commands.yml'
+COMMANDS_PATH = '../resources/commands/commands.yml'
+ACTIONS_PATH = '../resources/commands/commands-actions.yml'
+
 
 class IRController:
     def __init__(self, device, review_mode):
         self.__device = device
         self.__review_mode = review_mode
-        self.__raw_commands_path = './resources/commands/raw-commands.yml'
-        self.__commands_path = './resources/commands/commands.yml'
-        self.__actions_path = './resources/commands/commands-actions.yml'
         self.__command_validator = None
         self.__ir_sender = None
 
     def load_config(self):
-        with open(self.__raw_commands_path, 'r') as stream:
+        with open(os.path.join(dir, RAW_COMMANDS_PATH), 'r') as stream:
             try:
                 raw_commands = yaml.load(stream)
             except yaml.YAMLError as exception:
                 raw_commands = None
                 print(exception)
 
-        with open(self.__commands_path, 'r') as stream:
+        with open(os.path.join(dir, COMMANDS_PATH), 'r') as stream:
             try:
                 commands = yaml.load(stream)
             except yaml.YAMLError as exception:
                 commands = None
                 print(exception)
 
-        with open(self.__actions_path, 'r') as stream:
+        with open(os.path.join(dir, ACTIONS_PATH), 'r') as stream:
             try:
                 actions = yaml.load(stream)
             except yaml.YAMLError as exception:

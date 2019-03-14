@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import os
+
 import click
 
 from remote_controller.command_handler import CommandHandler
