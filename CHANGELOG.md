@@ -7,7 +7,7 @@ A continuación se presenta el diagrama de clases con la arquitectura general de
 ![Arquitectura](https://raw.githubusercontent.com/erickduran/avs-remote-controller/master/docs/img/03-class-diagram.png)
 
 ## 2019-03-11 - AVS-28 REST API
-Se implementó la primera versión del API para enviar comandos desde clientes externos a la televisión. E
+Se implementó la primera versión del API para enviar comandos desde clientes externos a la televisión.
 
 El _endpoint_ público está disponible en `http://vcrc.erickduran.com:55555`.
 
@@ -18,7 +18,7 @@ Se implementó una versión del modo `cli` que permite interactuar con el progra
 
 Para correr el _review_mode_ implementado, es necesario correr el siguiente comando:
 ```bash
-python3 main.py cli lg -r
+python3 remote-controller/main.py cli -d lg -r
 ``` 
 
 ## 2019-03-10 - AVS-10 Código en Python
@@ -30,7 +30,7 @@ pip3 install pyyaml
 
 Para correr el modo interactivo implementado, es necesario correr el siguiente comando:
 ```bash
-python3 main.py cli lg
+python3 remote-controller/main.py cli -d lg
 ``` 
 
 La nueva interface permite enviar los comandos descritos en los archivos `remote-controller/resources/commands.yml` (simplificados) y `remote-controller/resources/raw-commands.yml` (directos a `lirc`). Los comandos simplificados permiten enviar argumentos adicionales, dependiendo de cada comando. Para verificar cada comando específicamente, ver sus archivos de configuración.

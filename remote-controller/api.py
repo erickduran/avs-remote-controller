@@ -1,11 +1,19 @@
 import logging
-from flask import Flask, jsonify, request
+
+from waitress import serve
+from paste.translogger import TransLogger
+from flask import Flask, jsonify, request, redirect
 
 from remote_controller.command_handler import CommandHandler
 
 app = Flask(__name__)
 command_handler = CommandHandler('lg', True)
 command_handler.load()
+
+
+@app.route('/', methods=['GET'])
+def home():
+    return redirect("https://www.erickduran.com", code=302)
 
 
 @app.route('/', methods=['POST'])
@@ -49,11 +57,14 @@ def index():
 
 
 if __name__ == '__main__':
-    logger = logging.getLogger('werkzeug')
-    handler = logging.FileHandler('api.log')
-    logger.addHandler(handler)
-    app.logger.addHandler(handler)
+    app = TransLogger(app, logger_name='api_logger')
 
-    # Just for dev purposes, NOT RECOMMENDED
-    app.run(host='0.0.0.0', port=55555)
+    logger = logging.getLogger('api_logger')
+    logger.setLevel(logging.DEBUG)
 
+    file_handler = logging.FileHandler('api.log')
+    file_handler.setLevel(logging.DEBUG)
+
+    logger.addHandler(file_handler)
+
+    serve(app, host='0.0.0.0', port=55555)
