@@ -46,7 +46,7 @@ class IRController:
         if commands is not None and raw_commands is not None:
             self.__command_validator = CommandValidator(self.__device, commands, raw_commands)
         else:
-            raise FileNotLoadedError('Commands file not loaded correctly.')
+            raise FileNotLoadedError('Commands files not loaded correctly.')
 
         if actions is not None:
             self.__ir_sender = IRSender(self.__device, actions, self.__review_mode)
