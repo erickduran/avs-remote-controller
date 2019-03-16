@@ -1,0 +1,4 @@
+test:
+  script:
+    - export PYTHONPATH=remote-controller
+    - echo PYTHONPATH
