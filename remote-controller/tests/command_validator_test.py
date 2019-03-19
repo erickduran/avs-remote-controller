@@ -31,6 +31,7 @@ class IRSenderTest(unittest.TestCase):
         self.__device = 'lg'
         self.__command_validator = CommandValidator(self.__device, commands, raw_commands)
 
+    # Power
     def test_validate_valid_power_command(self):
         command = 'POWER'
         result = self.__command_validator.validate(command, None)
@@ -47,6 +48,80 @@ class IRSenderTest(unittest.TestCase):
         description = 'This command powers on/off the TV.'
         expected = ('raw_command', command, description)
         self.assertEqual(result, expected)
+
+    # Channel
+
+    def test_validate_valid_channel_up_command(self):
+        command = 'CHANNEL_UP'
+        result = self.__command_validator.validate(command, None)
+        self.assertTrue(result)
+
+    def test_validate_raw_valid_channel_up_command(self):
+        command = 'KEY_CHANNELUP'
+        result = self.__command_validator.validate_raw(command)
+        self.assertTrue(result)
+
+    def test_exists_for_existing_raw_channel_up_command(self):
+        command = 'KEY_CHANNELUP'
+        result = self.__command_validator.exists(command)
+        description = 'This command turns the channel up by a value of 1.'
+        expected = ('raw_command', command, description)
+        self.assertEqual(result, expected)
+
+    def test_validate_valid_channel_down_command(self):
+        command = 'CHANNEL_DOWN'
+        result = self.__command_validator.validate(command, None)
+        self.assertTrue(result)
+
+    def test_validate_raw_valid_channel_down_command(self):
+        command = 'KEY_CHANNELDOWN'
+        result = self.__command_validator.validate_raw(command)
+        self.assertTrue(result)
+
+    def test_exists_for_existing_raw_channel_down_command(self):
+        command = 'KEY_CHANNELDOWN'
+        result = self.__command_validator.exists(command)
+        description = 'This command turns the channel down by a value of 1.'
+        expected = ('raw_command', command, description)
+        self.assertEqual(result, expected)
+
+    # Volume
+
+    def test_validate_valid_volume_up_command(self):
+        command = 'VOLUME_UP'
+        result = self.__command_validator.validate(command, None)
+        self.assertTrue(result)
+
+    def test_validate_raw_valid_volume_up_command(self):
+        command = 'KEY_VOLUMEUP'
+        result = self.__command_validator.validate_raw(command)
+        self.assertTrue(result)
+
+    def test_exists_for_existing_raw_volume_up_command(self):
+        command = 'KEY_VOLUMEUP'
+        result = self.__command_validator.exists(command)
+        description = 'This command turns the volume up by a value of 1.'
+        expected = ('raw_command', command, description)
+        self.assertEqual(result, expected)
+
+    def test_validate_valid_volume_down_command(self):
+        command = 'VOLUME_DOWN'
+        result = self.__command_validator.validate(command, None)
+        self.assertTrue(result)
+
+    def test_validate_raw_valid_volume_down_command(self):
+        command = 'KEY_VOLUMEDOWN'
+        result = self.__command_validator.validate_raw(command)
+        self.assertTrue(result)
+
+    def test_exists_for_existing_raw_volume_down_command(self):
+        command = 'KEY_VOLUMEDOWN'
+        result = self.__command_validator.exists(command)
+        description = 'This command turns the volume down by a value of 1.'
+        expected = ('raw_command', command, description)
+        self.assertEqual(result, expected)
+
+    # Arrows and OK
 
     def test_validate_valid_ok_command(self):
         command = 'OK'
@@ -65,20 +140,71 @@ class IRSenderTest(unittest.TestCase):
         expected = ('raw_command', command, description)
         self.assertEqual(result, expected)
 
-    def test_validate_valid_channel_up_command(self):
-        command = 'CHANNEL_UP'
+    def test_validate_valid_left_command(self):
+        command = 'MOVE_LEFT'
         result = self.__command_validator.validate(command, None)
         self.assertTrue(result)
 
-    def test_validate_raw_valid_channel_up_command(self):
-        command = 'KEY_CHANNELUP'
+    def test_validate_raw_valid_left_command(self):
+        command = 'KEY_LEFT'
         result = self.__command_validator.validate_raw(command)
         self.assertTrue(result)
 
-    def test_exists_for_existing_raw_channel_up_command(self):
-        command = 'KEY_CHANNELUP'
+    def test_exists_for_existing_raw_left_command(self):
+        command = 'KEY_LEFT'
         result = self.__command_validator.exists(command)
-        description = 'This command turns the channel up by a value of 1.'
+        description = 'This command invokes the LEFT selection arrow.'
+        expected = ('raw_command', command, description)
+        self.assertEqual(result, expected)
+
+    def test_validate_valid_right_command(self):
+        command = 'MOVE_RIGHT'
+        result = self.__command_validator.validate(command, None)
+        self.assertTrue(result)
+
+    def test_validate_raw_valid_right_command(self):
+        command = 'KEY_RIGHT'
+        result = self.__command_validator.validate_raw(command)
+        self.assertTrue(result)
+
+    def test_exists_for_existing_raw_right_command(self):
+        command = 'KEY_RIGHT'
+        result = self.__command_validator.exists(command)
+        description = 'This command invokes the RIGHT selection arrow.'
+        expected = ('raw_command', command, description)
+        self.assertEqual(result, expected)
+
+    def test_validate_valid_up_command(self):
+        command = 'MOVE_LEFT'
+        result = self.__command_validator.validate(command, None)
+        self.assertTrue(result)
+
+    def test_validate_raw_valid_up_command(self):
+        command = 'KEY_UP'
+        result = self.__command_validator.validate_raw(command)
+        self.assertTrue(result)
+
+    def test_exists_for_existing_raw_up_command(self):
+        command = 'KEY_UP'
+        result = self.__command_validator.exists(command)
+        description = 'This command invokes the UP selection arrow.'
+        expected = ('raw_command', command, description)
+        self.assertEqual(result, expected)
+
+    def test_validate_valid_down_command(self):
+        command = 'MOVE_DOWN'
+        result = self.__command_validator.validate(command, None)
+        self.assertTrue(result)
+
+    def test_validate_raw_valid_down_command(self):
+        command = 'KEY_DOWN'
+        result = self.__command_validator.validate_raw(command)
+        self.assertTrue(result)
+
+    def test_exists_for_existing_raw_down_command(self):
+        command = 'KEY_DOWN'
+        result = self.__command_validator.exists(command)
+        description = 'This command invokes the DOWN selection arrow.'
         expected = ('raw_command', command, description)
         self.assertEqual(result, expected)
 
