@@ -3,6 +3,7 @@ import os
 import unittest
 import yaml
 
+from remote_controller.errors import InvalidCommandError, InvalidArgumentError
 from remote_controller.command_validator import CommandValidator
 
 dir = os.path.dirname(__file__)
@@ -327,11 +328,136 @@ class IRSenderTest(unittest.TestCase):
         expected = ('raw_command', command, description)
         self.assertEqual(result, expected)
 
+    # Testing for not existing commands exists.
+
+    def test_exists_for_inexisting_pawer_command(self):
+        command = 'PAWER'
+        with self.assertRaises(InvalidCommandError) as context:
+            self.__command_validator.exists(command)
+        self.assertTrue('Command doesn\'t exist', InvalidCommandError)
+
+    def test_exists_for_inexisting_ko_command(self):
+        command = 'KO'
+        with self.assertRaises(InvalidCommandError) as context:
+            self.__command_validator.exists(command)
+        self.assertTrue('Command doesn\'t exist', InvalidCommandError)
+
+    def test_exists_for_inexisting_minu_command(self):
+        command = 'MINU'
+        with self.assertRaises(InvalidCommandError) as context:
+            self.__command_validator.exists(command)
+        self.assertTrue('Command doesn\'t exist', InvalidCommandError)
+
+    def test_exists_for_inexisting_raw_10_command(self):
+        command = 'KEY_10'
+        with self.assertRaises(InvalidCommandError) as context:
+            self.__command_validator.exists(command)
+        self.assertTrue('Command doesn\'t exist', InvalidCommandError)
+
+    def test_exists_for_inexisting_raw_20_command(self):
+        command = 'KEY_20'
+        with self.assertRaises(InvalidCommandError) as context:
+            self.__command_validator.exists(command)
+        self.assertTrue('Command doesn\'t exist', InvalidCommandError)
+
+    def test_exists_for_inexisting_raw_2o_command(self):
+        command = 'KEY_2o'
+        with self.assertRaises(InvalidCommandError) as context:
+            self.__command_validator.exists(command)
+        self.assertTrue('Command doesn\'t exist', InvalidCommandError)
+
+    def test_exists_for_inexisting_raw_ko_command(self):
+        command = 'KEY_KO'
+        with self.assertRaises(InvalidCommandError) as context:
+            self.__command_validator.exists(command)
+        self.assertTrue('Command doesn\'t exist', InvalidCommandError)
+
+    def test_exists_for_inexisting_raw_minu_command(self):
+        command = 'KEY_MINU'
+        with self.assertRaises(InvalidCommandError) as context:
+            self.__command_validator.exists(command)
+        self.assertTrue('Command doesn\'t exist', InvalidCommandError)
+
+    def test_exists_for_inexisting_raw_pawer_command(self):
+        command = 'KEY_PAWER'
+        with self.assertRaises(InvalidCommandError) as context:
+            self.__command_validator.exists(command)
+        self.assertTrue('Command doesn\'t exist', InvalidCommandError)
+
+    # Testing for not existing commands with validate
+
+    def test_validate_invalid_pawer_command(self):
+        command = 'PAWER'
+        with self.assertRaises(InvalidCommandError) as context:
+            self.__command_validator.validate(command,None)
+        self.assertTrue('Command doesn\'t exist', InvalidCommandError)
+
+    def test_validate_raw_invalid_pawer_command(self):
+        command = 'KEY_PAWER'
+        with self.assertRaises(InvalidCommandError) as context:
+            self.__command_validator.validate_raw(command)
+        self.assertTrue('Command doesn\'t exist', InvalidCommandError)
+
+    def test_validate_invalid_ko_command(self):
+        command = 'KO'
+        with self.assertRaises(InvalidCommandError) as context:
+            self.__command_validator.validate(command,None)
+        self.assertTrue('Command doesn\'t exist', InvalidCommandError)
+
+    def test_validate_raw_invalid_ko_command(self):
+        command = 'KEY_KO'
+        with self.assertRaises(InvalidCommandError) as context:
+            self.__command_validator.validate_raw(command)
+        self.assertTrue('Command doesn\'t exist', InvalidCommandError)
+
+    def test_validate_invalid_mut_command(self):
+        command = 'MUT'
+        with self.assertRaises(InvalidCommandError) as context:
+            self.__command_validator.validate(command,None)
+        self.assertTrue('Command doesn\'t exist', InvalidCommandError)
+
+    def test_validate_raw_invalid_mut_command(self):
+        command = 'KEY_MUT'
+        with self.assertRaises(InvalidCommandError) as context:
+            self.__command_validator.validate_raw(command)
+        self.assertTrue('Command doesn\'t exist', InvalidCommandError)
+
+    # Testing commands with arguments
+
+    def test_validate_valid_volume_up_10_command(self):
+        command = 'VOLUME_UP'
+        result = self.__command_validator.validate(command, 10)
+        self.assertTrue(result)
+
+    def test_validate_invalid_volume_up_1o_command(self):
+        command = 'VOLUME_UP'
+        with self.assertRaises(InvalidArgumentError) as context:
+            self.__command_validator.validate(command, '1o')
+        self.assertTrue('Command\'s argument must be integer', InvalidArgumentError)
+
+    def test_validate_valid_channel_up_10_command(self):
+        command = 'CHANNEL_UP'
+        result = self.__command_validator.validate(command, 10)
+        self.assertTrue(result)
+
+    def test_validate_invalid_move_up_1o_command(self):
+        command = 'MOVE_UP'
+        with self.assertRaises(InvalidArgumentError) as context:
+            self.__command_validator.validate(command, '1o')
+        self.assertTrue('Command\'s argument must be integer', InvalidArgumentError)
+
+    def test_validate_invalid_channel_command(self):
+        command = 'CHANNEL'
+        with self.assertRaises(InvalidArgumentError) as context:
+            self.__command_validator.validate(command, None)
+        self.assertTrue('Command\'s argument is required', InvalidArgumentError)
+
     # TODO
-    # test more commands and raw commands
-    # test not existing commands and raw commands with validate and validate_raw
-    # test commands with arguments
-    # test commands with arguments fail because of no arguments
-    # test commands with arguments sending invalid argument (string instead of int)
-    # test mode existing commands and raw commands
-    # test not existing commands and raw commands with exists
+
+    # test more commands and raw commands                                               DONE
+    # test not existing commands and raw commands with validate and validate_raw        DONE
+    # test commands with arguments                                                      DONE
+    # test commands with arguments fail because of no arguments                         DONE
+    # test commands with arguments sending invalid argument (string instead of int)     DONE
+    # test mode existing commands and raw commands                                      DONE
+    # test not existing commands and raw commands with exists                           DONE
