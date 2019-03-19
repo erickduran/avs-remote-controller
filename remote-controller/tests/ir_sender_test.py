@@ -23,7 +23,7 @@ class IRSenderTest(unittest.TestCase):
         self.__device = 'lg'
         self.__ir_sender = IRSender(self.__device, actions, True)
 
-    # Commands
+    # Commands & Raw commands
     # Power
     def test_send_raw_power_command(self):
         command = 'KEY_POWER'
@@ -286,9 +286,39 @@ class IRSenderTest(unittest.TestCase):
         result = self.__ir_sender.send(command, None)
         self.assertTrue(expected, result)
 
-    
+    # Repetition commands
+    # Channel
+    def test_composite_channelup_command(self):
+        # command = 'CHANNEL_UP'
 
-    # TODO
+    def test_composite_channeldown_command(self):
+        # command = 'CHANNEL_DOWN'
+
+    # Volume
+    def test_composite_volumeup_command(self):
+        # command = 'VOLUME_UP'
+
+    def test_composite_volumedown_command(self):
+        # command = 'VOLUME_DOWN'
+
+    # Move
+    def test_composite_moveup_command(self):
+        # command = 'MOVE_UP'
+
+    def test_composite_movedown_command(self):
+        # command = 'MOVE_DOWN'
+
+    def test_composite_moveleft_command(self):
+        # command = 'MOVE_LEFT'
+
+    def test_composite_moveright_command(self):
+        # command = 'MOVE_RIGHT'
+
+
+    # Composite number commands
+    def test_number_channels_command(self):
+        # commands = 'KEY 0 to 1? '
+
     # test more commands and raw commands                               Done
-    # test composite repetition commands (volume up, volume down, etc.) Tbd
-    # test composite number commands (channel)
+    # test composite repetition commands (volume up, volume down, etc.) ToDo
+    # test composite number commands (channel)                          ToDo
