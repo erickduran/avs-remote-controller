@@ -1,10 +1,6 @@
 commands:
   POWER:
     raw-command: KEY_POWER
-  CHANNEL_UP:
-    raw-command: KEY_CHANNELUP
-  CHANNEL_DOWN:
-    raw-command: KEY_CHANNELDOWN
   OK:
     raw-command: KEY_OK
   LIST:
@@ -30,6 +26,12 @@ commands:
   CHANNEL:
     raw-command: KEY_
     composite: number
+  CHANNEL_UP:
+    raw-command: KEY_CHANNELUP
+    composite: repetition
+  CHANNEL_DOWN:
+    raw-command: KEY_CHANNELDOWN
+    composite: repetition
   VOLUME_UP:
     raw-command: KEY_VOLUMEUP
     composite: repetition
