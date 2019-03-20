@@ -6,8 +6,8 @@ import click
 
 from remote_controller.command_handler import CommandHandler
 
-dir = os.path.dirname(__file__)
-api_path = os.path.join(dir, 'api.py')
+FILE_PATH = os.path.dirname(__file__)
+API_PATH = os.path.join(FILE_PATH, 'api.py')
 
 
 @click.command()
@@ -33,7 +33,7 @@ def main(mode, device, review_mode):
             print('Please specify a device for CLI mode.')
 
     elif mode == 'api':
-        os.system('python3 {}'.format(api_path))
+        os.system('python3 {}'.format(API_PATH))
 
 
 if __name__ == '__main__':

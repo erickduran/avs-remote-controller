@@ -2,12 +2,11 @@ import os
 
 import yaml
 
-from .command_validator import CommandValidator
-from .ir_sender import IRSender
-from .errors import FileNotLoadedError
+from remote_controller.command_validator import CommandValidator
+from remote_controller.ir_sender import IRSender
+from remote_controller.errors import FileNotLoadedError
 
-dir = os.path.dirname(__file__)
-api_path = os.path.join(dir, 'api.py')
+FILE_PATH = os.path.dirname(__file__)
 
 RAW_COMMANDS_PATH = '../resources/commands/raw-commands.yml'
 COMMANDS_PATH = '../resources/commands/commands.yml'
@@ -22,21 +21,21 @@ class IRController:
         self.__ir_sender = None
 
     def load_config(self):
-        with open(os.path.join(dir, RAW_COMMANDS_PATH), 'r') as stream:
+        with open(os.path.join(FILE_PATH, RAW_COMMANDS_PATH), 'r') as stream:
             try:
                 raw_commands = yaml.load(stream)
             except yaml.YAMLError as exception:
                 raw_commands = None
                 print(exception)
 
-        with open(os.path.join(dir, COMMANDS_PATH), 'r') as stream:
+        with open(os.path.join(FILE_PATH, COMMANDS_PATH), 'r') as stream:
             try:
                 commands = yaml.load(stream)
             except yaml.YAMLError as exception:
                 commands = None
                 print(exception)
 
-        with open(os.path.join(dir, ACTIONS_PATH), 'r') as stream:
+        with open(os.path.join(FILE_PATH, ACTIONS_PATH), 'r') as stream:
             try:
                 actions = yaml.load(stream)
             except yaml.YAMLError as exception:

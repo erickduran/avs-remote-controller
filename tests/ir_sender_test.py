@@ -5,7 +5,7 @@ import yaml
 
 from remote_controller.ir_sender import IRSender
 
-dir = os.path.dirname(__file__)
+FILE_PATH = os.path.dirname(__file__)
 
 ACTIONS_PATH = '../resources/commands/commands-actions.yml'
 
@@ -13,7 +13,7 @@ ACTIONS_PATH = '../resources/commands/commands-actions.yml'
 class IRSenderTest(unittest.TestCase):
 
     def setUp(self):
-        with open(os.path.join(dir, ACTIONS_PATH), 'r') as stream:
+        with open(os.path.join(FILE_PATH, ACTIONS_PATH), 'r') as stream:
             try:
                 actions = yaml.load(stream)
             except yaml.YAMLError as exception:
@@ -290,34 +290,43 @@ class IRSenderTest(unittest.TestCase):
     # Channel
     def test_composite_channelup_command(self):
         # command = 'CHANNEL_UP'
+        pass
 
     def test_composite_channeldown_command(self):
         # command = 'CHANNEL_DOWN'
+        pass
 
     # Volume
     def test_composite_volumeup_command(self):
         # command = 'VOLUME_UP'
+        pass
 
     def test_composite_volumedown_command(self):
         # command = 'VOLUME_DOWN'
+        pass
 
     # Move
     def test_composite_moveup_command(self):
         # command = 'MOVE_UP'
+        pass
 
     def test_composite_movedown_command(self):
         # command = 'MOVE_DOWN'
+        pass
 
     def test_composite_moveleft_command(self):
         # command = 'MOVE_LEFT'
+        pass
 
     def test_composite_moveright_command(self):
         # command = 'MOVE_RIGHT'
+        pass
 
 
     # Composite number commands
     def test_number_channels_command(self):
         # commands = 'KEY 0 to 1? '
+        pass
 
     # test more commands and raw commands                               Done
     # test composite repetition commands (volume up, volume down, etc.) ToDo

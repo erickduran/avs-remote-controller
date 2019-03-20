@@ -1,5 +1,5 @@
-from .ir_controller import IRController
-from .errors import Error
+from remote_controller.ir_controller import IRController
+from remote_controller.errors import Error
 
 
 class CommandHandler:

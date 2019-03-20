@@ -1,7 +1,7 @@
 import os
 import time
 
-from .errors import InvalidCompositeCommandError
+from remote_controller.errors import InvalidCompositeCommandError
 
 
 class IRSender:

@@ -1,4 +1,4 @@
-from .errors import InvalidCommandError, InvalidArgumentError
+from remote_controller.errors import InvalidCommandError, InvalidArgumentError
 
 
 class CommandValidator:

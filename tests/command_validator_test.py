@@ -6,7 +6,7 @@ import yaml
 from remote_controller.errors import InvalidCommandError, InvalidArgumentError
 from remote_controller.command_validator import CommandValidator
 
-dir = os.path.dirname(__file__)
+FILE_PATH = os.path.dirname(__file__)
 
 RAW_COMMANDS_PATH = '../resources/commands/raw-commands.yml'
 COMMANDS_PATH = '../resources/commands/commands.yml'
@@ -15,14 +15,14 @@ COMMANDS_PATH = '../resources/commands/commands.yml'
 class IRSenderTest(unittest.TestCase):
 
     def setUp(self):
-        with open(os.path.join(dir, RAW_COMMANDS_PATH), 'r') as stream:
+        with open(os.path.join(FILE_PATH, RAW_COMMANDS_PATH), 'r') as stream:
             try:
                 raw_commands = yaml.load(stream)
             except yaml.YAMLError as exception:
                 raw_commands = None
                 print(exception)
 
-        with open(os.path.join(dir, COMMANDS_PATH), 'r') as stream:
+        with open(os.path.join(FILE_PATH, COMMANDS_PATH), 'r') as stream:
             try:
                 commands = yaml.load(stream)
             except yaml.YAMLError as exception:
