@@ -46,7 +46,7 @@ class IRSenderTest(unittest.TestCase):
 
     def test_send_ok_command(self):
         command = 'OK'
-        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'OK')]
+        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'KEY_OK')]
         result = self.__ir_sender.send(command, None)
         self.assertTrue(expected, result)
 
@@ -59,7 +59,7 @@ class IRSenderTest(unittest.TestCase):
 
     def test_send_list_command(self):
         command = 'LIST'
-        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'LIST')]
+        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'KEY_LIST')]
         result = self.__ir_sender.send(command, None)
         self.assertTrue(expected, result)
 
@@ -72,7 +72,7 @@ class IRSenderTest(unittest.TestCase):
 
     def test_send_undo_command(self):
         command = 'UNDO'
-        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'UNDO')]
+        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'KEY_UNDO')]
         result = self.__ir_sender.send(command, None)
         self.assertTrue(expected, result)
 
@@ -85,7 +85,7 @@ class IRSenderTest(unittest.TestCase):
 
     def test_send_back_command(self):
         command = 'BACK'
-        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'BACK')]
+        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'KEY_BACK')]
         result = self.__ir_sender.send(command, None)
         self.assertTrue(expected, result)
 
@@ -98,7 +98,7 @@ class IRSenderTest(unittest.TestCase):
 
     def test_send_info_command(self):
         command = 'INFO'
-        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'INFO')]
+        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'KEY_INFO')]
         result = self.__ir_sender.send(command, None)
         self.assertTrue(expected, result)
 
@@ -111,7 +111,7 @@ class IRSenderTest(unittest.TestCase):
 
     def test_send_exit_command(self):
         command = 'EXIT'
-        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'EXIT')]
+        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'KEY_EXIT')]
         result = self.__ir_sender.send(command, None)
         self.assertTrue(expected, result)
 
@@ -137,7 +137,7 @@ class IRSenderTest(unittest.TestCase):
 
     def test_send_mute_command(self):
         command = 'MUTE'
-        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'MUTE')]
+        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'KEY_MUTE')]
         result = self.__ir_sender.send(command, None)
         self.assertTrue(expected, result)
 
@@ -176,7 +176,7 @@ class IRSenderTest(unittest.TestCase):
 
     def test_send_screen_command(self):
         command = 'SCREEN_RATIO'
-        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'SCREEN_RATIO')]
+        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'KEY_SCREEN')]
         result = self.__ir_sender.send(command, None)
         self.assertTrue(expected, result)
 
@@ -203,7 +203,7 @@ class IRSenderTest(unittest.TestCase):
 
     def test_send_volumedown_command(self):
         command = 'VOLUME_DOWN'
-        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'VOLUME_DOWN')]
+        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'KEY_VOLUMEDOWN')]
         result = self.__ir_sender.send(command, None)
         self.assertTrue(expected, result)
 
@@ -217,7 +217,7 @@ class IRSenderTest(unittest.TestCase):
 
     def test_send_channelup_command(self):
         command = 'CHANNEL_UP'
-        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'CHANNEL_UP')]
+        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'KEY_CHANNELUP')]
         result = self.__ir_sender.send(command, None)
         self.assertTrue(expected, result)
     # Down
@@ -243,7 +243,7 @@ class IRSenderTest(unittest.TestCase):
 
     def test_send_keyup_command(self):
         command = 'MOVE_UP'
-        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'MOVE_UP')]
+        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'KEY_UP')]
         result = self.__ir_sender.send(command, None)
         self.assertTrue(expected, result)
 
@@ -256,7 +256,7 @@ class IRSenderTest(unittest.TestCase):
 
     def test_send_keydown_command(self):
         command = 'MOVE_DOWN'
-        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'MOVE_DOWN')]
+        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'KEY_DOWN')]
         result = self.__ir_sender.send(command, None)
         self.assertTrue(expected, result)
 
@@ -269,7 +269,7 @@ class IRSenderTest(unittest.TestCase):
 
     def test_send_keyright_command(self):
         command = 'MOVE_RIGHT'
-        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'MOVE_RIGHT')]
+        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'KEY_RIGHT')]
         result = self.__ir_sender.send(command, None)
         self.assertTrue(expected, result)
 
@@ -282,15 +282,17 @@ class IRSenderTest(unittest.TestCase):
 
     def test_send_keyleft_command(self):
         command = 'MOVE_LEFT'
-        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'MOVE_LEFT')]
+        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'KEY_LEFT')]
         result = self.__ir_sender.send(command, None)
         self.assertTrue(expected, result)
 
     # Repetition commands
     # Channel
     def test_composite_channelup_command(self):
-        # command = 'CHANNEL_UP'
-        pass
+        command = 'CHANNEL_UP'
+        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'KEY_CHANNELUP')]
+        result = self.__ir_sender.send(command, 3)
+        self.assertTrue(expected, result)
 
     def test_composite_channeldown_command(self):
         # command = 'CHANNEL_DOWN'
