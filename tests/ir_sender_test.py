@@ -295,41 +295,53 @@ class IRSenderTest(unittest.TestCase):
         self.assertTrue(expected, result)
 
     def test_composite_channeldown_command(self):
-        # command = 'CHANNEL_DOWN'
-        pass
+        command = 'CHANNEL_DOWN'
+        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'KEY_CHANNELDOWN')]
+        result = self.__ir_sender.send(command, 3)
+        self.assertTrue(expected, result)
 
     # Volume
     def test_composite_volumeup_command(self):
-        # command = 'VOLUME_UP'
-        pass
+        command = 'VOLUME_UP'
+        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'KEY_VOLUMEUP')]
+        result = self.__ir_sender.send(command, 3)
+        self.assertTrue(expected, result)
 
     def test_composite_volumedown_command(self):
-        # command = 'VOLUME_DOWN'
-        pass
+        command = 'VOLUME_DOWN'
+        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'KEY_VOLUMEDOWN')]
+        result = self.__ir_sender.send(command, 3)
+        self.assertTrue(expected, result)
 
     # Move
     def test_composite_moveup_command(self):
-        # command = 'MOVE_UP'
-        pass
+        command = 'MOVE_UP'
+        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'KEY_UP')]
+        result = self.__ir_sender.send(command, 3)
+        self.assertTrue(expected, result)
 
     def test_composite_movedown_command(self):
-        # command = 'MOVE_DOWN'
-        pass
+        command = 'MOVE_DOWN'
+        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'KEY_DOWN')]
+        result = self.__ir_sender.send(command, 3)
+        self.assertTrue(expected, result)
 
     def test_composite_moveleft_command(self):
-        # command = 'MOVE_LEFT'
-        pass
+        command = 'MOVE_LEFT'
+        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'KEY_LEFT')]
+        result = self.__ir_sender.send(command, 3)
+        self.assertTrue(expected, result)
 
     def test_composite_moveright_command(self):
-        # command = 'MOVE_RIGHT'
-        pass
-
+        command = 'MOVE_RIGHT'
+        expected = ['irsend SEND_ONCE {} {}'.format(self.__device, 'KEY_RIGHT')]
+        result = self.__ir_sender.send(command, 3)
+        self.assertTrue(expected, result)
 
     # Composite number commands
-    def test_number_channels_command(self):
-        # commands = 'KEY 0 to 1? '
-        pass
+    # def test_number_channels_command(self):
+        # To be done
 
     # test more commands and raw commands                               Done
-    # test composite repetition commands (volume up, volume down, etc.) ToDo
+    # test composite repetition commands (volume up, volume down, etc.) Done?
     # test composite number commands (channel)                          ToDo
