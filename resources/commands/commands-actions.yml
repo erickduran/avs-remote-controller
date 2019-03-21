@@ -6,7 +6,7 @@ commands:
   LIST:
     raw-command: KEY_LIST
   UNDO:
-    raw-command: KEY_OK
+    raw-command: KEY_UNDO
   BACK:
     raw-command: KEY_BACK
   INFO:
