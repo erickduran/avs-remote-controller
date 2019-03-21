@@ -1,4 +1,4 @@
-from .errors import InvalidCommandError, InvalidArgumentError
+from remote_controller.errors import InvalidCommandError, InvalidArgumentError
 
 
 class CommandValidator:
@@ -10,6 +10,7 @@ class CommandValidator:
     def validate_raw(self, command):
         if command not in self.__raw_commands['commands'].keys():
             raise InvalidCommandError('Command doesn\'t exist')
+        return True
 
     def validate(self, command, value):
         if command not in self.__commands['commands'].keys():
@@ -24,6 +25,7 @@ class CommandValidator:
                     int(value)
                 except ValueError:
                     raise InvalidArgumentError('Command\'s argument must be integer')
+        return True
 
     def exists(self, command):
         if command in self.__raw_commands['commands'].keys():

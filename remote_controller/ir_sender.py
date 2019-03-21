@@ -1,7 +1,7 @@
 import os
 import time
 
-from .errors import InvalidCompositeCommandError
+from remote_controller.errors import InvalidCompositeCommandError
 
 
 class IRSender:
@@ -26,12 +26,12 @@ class IRSender:
                 for char in value:
                     command = 'KEY_{}'.format(char)
                     bash_commands += self.send_raw(command)
-                    time.sleep(1)
+                    time.sleep(0.5)
             elif parsed[1] == 'repetition':
                 if value is not None:
                     for i in range(0, int(value)):
                         bash_commands += self.send_raw(parsed[0])
-                        time.sleep(1)
+                        time.sleep(0.5)
                 else:
                     return self.send_raw(parsed[0])
             else:

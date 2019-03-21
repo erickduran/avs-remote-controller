@@ -2,12 +2,6 @@ commands:
   POWER:
     description: This command powers on/off the TV.
     args: null
-  CHANNEL_UP:
-    description: This command changes de channel of the TV up.
-    args: null
-  CHANNEL_DOWN:
-    description: This command changes de channel of the TV down.
-    args: null
   OK:
     description: This command invokes the OK key.
     args: null
@@ -45,6 +39,16 @@ commands:
     description: 'This command changes de channel of the TV to the specified value. Required args: channel number.'
     args: 
       OPTIONAL: false
+      VALUE: int
+  CHANNEL_UP:
+    description: 'This command changes de channel of the TV to the specified value. Optional args: value to increase. Default is 1.'
+    args:
+      OPTIONAL: true
+      VALUE: int
+  CHANNEL_DOWN:
+    description: 'This command changes de channel of the TV to the specified value. Optional args: value to decrease. Default is 1.'
+    args:
+      OPTIONAL: true
       VALUE: int
   VOLUME_UP:
     description: 'This command changes de volume of the TV to the specified value. Optional args: value to increase. Default is 1.'

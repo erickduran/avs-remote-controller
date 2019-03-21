@@ -1,6 +1,19 @@
 ﻿# Changelog
 En este archivo se documentarán todos los cambios relevantes realizados en todos los ambientes para el desarrollo del presente proyecto. Esto incluye tanto instalaciones como desarrollo del código.
 
+## 2019-03-12 - AVS-29 Pruebas unitarias
+Se comenzaron a implementar las pruebas unitarias para las distintas maneras de ejecutar comandos en el presente proyecto. Tales pruebas se crearon utilizando el framework `unittest` de Python, y pueden ser ejecutadas mediante el siguiente comando:
+
+```bash
+python3 -m unittest discover -s remote-controller/tests -t remote-controller/tests -p *_test.py
+``` 
+
+En algunos casos, es necesario crear la variable de ambiente para Python:
+
+```bash
+export PYTHONPATH=remote-controller
+```
+
 ## 2019-03-12 - AVS-5 Arquitectura general
 A continuación se presenta el diagrama de clases con la arquitectura general del presente proyecto:
 

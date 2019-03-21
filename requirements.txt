@@ -1,10 +1,10 @@
-Click==7.0
-Flask==1.0.2
-itsdangerous==1.1.0
-Jinja2==2.10
-MarkupSafe==1.1.1
+Click>=6.6
+Flask>=0.12.1
+itsdangerous>=0.24
+Jinja2>=2.8
+MarkupSafe==0.23
 Paste==3.0.8
 pyyaml>=4.2b1
 six==1.12.0
 waitress==1.2.1
-Werkzeug==0.14.1
+Werkzeug>=0.11.15

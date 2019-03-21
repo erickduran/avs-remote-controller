@@ -23,6 +23,13 @@ Some available options are:
 - `-d` or `--device`: the name of the device, configured with `lirc`, necessary for `cli` mode.
 - `-r` or `--review_mode`: option that doesn't execute the commands, just for testing if everything is working properly and simulations.
 
+## Running the tests
+For this project, we used the `unittest` framework to create our unit tests. In order to run them, run the following command:
+
+```bash
+python3 -m unittest discover -s remote-controller/tests -t remote-controller/tests -p *_test.py
+```
+
 ### Version
 This repository stores v1.0 of the our AVS Remote Controller.
 
