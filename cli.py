@@ -5,6 +5,7 @@ import os
 import click
 
 from remote_controller.command_handler import CommandHandler
+from remote_controller.ir_trainer import IRTrainer
 
 FILE_PATH = os.path.dirname(__file__)
 API_PATH = os.path.join(FILE_PATH, 'api.py')
@@ -34,6 +35,9 @@ def main(mode, device, review_mode):
 
     elif mode == 'api':
         os.system('python3 {}'.format(API_PATH))
+
+    elif mode == 'training':
+        IRTrainer.run()
 
 
 if __name__ == '__main__':

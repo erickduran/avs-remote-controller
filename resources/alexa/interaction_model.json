@@ -1,0 +1,223 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "a la tele",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": [
+                        "cancelar"
+                    ]
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": [
+                        "ayuda"
+                    ]
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": [
+                        "detener"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": [
+                        "regresar al inicio"
+                    ]
+                },
+                {
+                    "name": "PowerIntent",
+                    "slots": [],
+                    "samples": [
+                        "prenda",
+                        "prender",
+                        "apague",
+                        "apagar",
+                        "encienda",
+                        "encender"
+                    ]
+                },
+                {
+                    "name": "OKIntent",
+                    "slots": [],
+                    "samples": [
+                        "OK",
+                        "está bien",
+                        "oquei",
+                        "okay"
+                    ]
+                },
+                {
+                    "name": "ListIntent",
+                    "slots": [],
+                    "samples": [
+                        "lista"
+                    ]
+                },
+                {
+                    "name": "UndoIntent",
+                    "slots": [],
+                    "samples": [
+                        "deshacer"
+                    ]
+                },
+                {
+                    "name": "BackIntent",
+                    "slots": [],
+                    "samples": [
+                        "regresar",
+                        "regresa",
+                        "atrás"
+                    ]
+                },
+                {
+                    "name": "InfoIntent",
+                    "slots": [],
+                    "samples": [
+                        "información"
+                    ]
+                },
+                {
+                    "name": "ExitIntent",
+                    "slots": [],
+                    "samples": [
+                        "salir",
+                        "sal"
+                    ]
+                },
+                {
+                    "name": "MenuIntent",
+                    "slots": [],
+                    "samples": [
+                        "menú",
+                        "ve al menú",
+                        "abre el menú"
+                    ]
+                },
+                {
+                    "name": "MuteIntent",
+                    "slots": [],
+                    "samples": [
+                        "silencio",
+                        "quita el sonido",
+                        "apaga el sonido"
+                    ]
+                },
+                {
+                    "name": "SettingsIntent",
+                    "slots": [],
+                    "samples": [
+                        "ajustes",
+                        "configuración"
+                    ]
+                },
+                {
+                    "name": "InputIntent",
+                    "slots": [],
+                    "samples": [
+                        "entradas",
+                        "entrada",
+                        "input",
+                        "HDMI"
+                    ]
+                },
+                {
+                    "name": "ScreenRatioIntent",
+                    "slots": [],
+                    "samples": [
+                        "pantalla",
+                        "proporción",
+                        "proporción de pantalla"
+                    ]
+                },
+                {
+                    "name": "ChannelIntent",
+                    "slots": [
+                        {
+                            "name": "channel",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "ve al {channel}",
+                        "cambia al {channel}",
+                        "canal número {channel}",
+                        "número {channel}",
+                        "vaya al {channel}",
+                        "canal {channel}",
+                        "ve al canal {channel}"
+                    ]
+                },
+                {
+                    "name": "VolumeUpIntent",
+                    "slots": [
+                        {
+                            "name": "value",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "sube el volumen {value}",
+                        "sube el volumen",
+                        "súbele {value} al volumen",
+                        "aumenta el volumen por {value}",
+                        "aumenta el volumen",
+                        "aumenta {value} el volumen"
+                    ]
+                },
+                {
+                    "name": "VolumeDownIntent",
+                    "slots": [
+                        {
+                            "name": "value",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "baja el volumen {value}",
+                        "baja el volumen",
+                        "bájale {value} al volumen",
+                        "disminuye el volumen por {value}",
+                        "disminuye el volumen",
+                        "disminuye {value} el volumen"
+                    ]
+                },
+                {
+                    "name": "MoveUpIntent",
+                    "slots": [],
+                    "samples": [
+                        "arriba",
+                        "ve arriba"
+                    ]
+                },
+                {
+                    "name": "MoveDownIntent",
+                    "slots": [],
+                    "samples": [
+                        "abajo",
+                        "ve abajo"
+                    ]
+                },
+                {
+                    "name": "MoveRightIntent",
+                    "slots": [],
+                    "samples": [
+                        "derecha",
+                        "ve a la derecha"
+                    ]
+                },
+                {
+                    "name": "MoveLeftIntent",
+                    "slots": [],
+                    "samples": [
+                        "izquierda",
+                        "ve a la izquierda"
+                    ]
+                }
+            ],
+            "types": []
+        }
+    }
+}
