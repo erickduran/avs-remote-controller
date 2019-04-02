@@ -1,16 +1,15 @@
-import json
-from pprint import pprint
+import sys
 
 from waitress import serve
 from flask import Flask
-from flask_ask import Ask, statement, question, session
+from flask_ask import Ask, statement, question
 
 from remote_controller.command_handler import CommandHandler
 
+
 app = Flask(__name__)
 ask = Ask(app, '/')
-command_handler = CommandHandler('lg', False)
-command_handler.load()
+
 
 @ask.launch
 def start_skill():
@@ -139,6 +138,14 @@ def volume_down_intent(value):
         command_handler.send('VOLUME_DOWN')
     return statement('Listo')
 
+
 if __name__ == '__main__':
-    serve(app, host='localhost', port=5000)
+    if len(sys.argv) < 2:
+        print('Please enter a device name, aborting...')
+    else:
+        command_handler = CommandHandler(sys.argv[1], False)
+        command_handler.load()
+        print('Starting on device: {}'.format(sys.argv[1]))
+        serve(app, host='localhost', port=5000)
+
 
