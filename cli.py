@@ -9,6 +9,7 @@ from remote_controller.ir_trainer import IRTrainer
 
 FILE_PATH = os.path.dirname(__file__)
 API_PATH = os.path.join(FILE_PATH, 'api.py')
+ALEXA_PATH = os.path.join(FILE_PATH, 'alexa.py')
 
 
 @click.command()
@@ -34,10 +35,22 @@ def main(mode, device, review_mode):
             print('Please specify a device for CLI mode.')
 
     elif mode == 'api':
-        os.system('python3 {}'.format(API_PATH))
+        if device:
+            os.system('python3 {} {}'.format(API_PATH, device))
+        else:
+            print('Please specify a device for API mode.')
 
     elif mode == 'training':
-        IRTrainer.run()
+        if device:
+            IRTrainer.run(device)
+        else:
+            print('Please specify a device for training mode.')
+
+    elif mode == 'alexa':
+        if device:
+            os.system('python3 {} {}'.format(API_PATH, device))
+        else:
+            print('Please specify a device for Alexa mode.')
 
 
 if __name__ == '__main__':

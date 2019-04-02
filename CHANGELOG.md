@@ -1,17 +1,42 @@
 ﻿# Changelog
 En este archivo se documentarán todos los cambios relevantes realizados en todos los ambientes para el desarrollo del presente proyecto. Esto incluye tanto instalaciones como desarrollo del código.
 
+## 2019-03-25 - AVS-36 Traducción de oraciones a instrucciones
+Se implementó el código para la interacción con _Alexa Voice Service_, el cual utiliza la librería `flask-ask` para facilitar la interacción del API. El código puede ser ejecutado mediante el siguiente comando:
+
+```bash
+python3 cli.py alexa -d lg
+``` 
+
+Para que la interacción sea posible, es necesario utilizar el modelo de interacción definido en `resources/alexa/interaction_model.json`, el cual incluye las definiciones de todos los `intents` necesarios para la implementación utilizada en este proyecto.
+
+Actualmente, se utiliza la herramienta `ngrok` para crear el _endpoint_ HTTPS público con las especificaciones necesarias para AVS. La documentación de esta herramienta puede encontrarse [aquí](https://ngrok.com/). Esta se puede ejecutar de la siguiente manera, después de haber ejecutado el modo `alexa`:
+
+```bash
+./ngrok http 5000
+```
+
+## 2019-03-20 - AVS-33 Modo entrenamiento
+Se implementó el modo entrenamiento para el CLI. El objetivo de este modo es simplificar la configuración de nuevos dispositivos este modo puede ser ejecutado de la siguiente manera:
+
+```bash
+python3 cli.py training -d lg
+``` 
+
+## 2019-03-15 - AVS-32 _Pipeline_
+Se creó el _pipeline_ del proyecto en el archivo `.gitlab-ci.yml`, el cual se encarga de correr las pruebas unitarias diariamente.
+
 ## 2019-03-12 - AVS-29 Pruebas unitarias
 Se comenzaron a implementar las pruebas unitarias para las distintas maneras de ejecutar comandos en el presente proyecto. Tales pruebas se crearon utilizando el framework `unittest` de Python, y pueden ser ejecutadas mediante el siguiente comando:
 
 ```bash
-python3 -m unittest discover -s remote-controller/tests -t remote-controller/tests -p *_test.py
+python3 -m unittest discover -s tests -t tests -p *_test.py
 ``` 
 
 En algunos casos, es necesario crear la variable de ambiente para Python:
 
 ```bash
-export PYTHONPATH=remote-controller
+export PYTHONPATH=avs-remote-controller
 ```
 
 ## 2019-03-12 - AVS-5 Arquitectura general
@@ -31,7 +56,7 @@ Se implementó una versión del modo `cli` que permite interactuar con el progra
 
 Para correr el _review_mode_ implementado, es necesario correr el siguiente comando:
 ```bash
-python3 remote-controller/main.py cli -d lg -r
+python3 cli.py cli -d lg -r
 ``` 
 
 ## 2019-03-10 - AVS-10 Código en Python
@@ -43,10 +68,10 @@ pip3 install pyyaml
 
 Para correr el modo interactivo implementado, es necesario correr el siguiente comando:
 ```bash
-python3 remote-controller/main.py cli -d lg
+python3 cli.py cli -d lg
 ``` 
 
-La nueva interface permite enviar los comandos descritos en los archivos `remote-controller/resources/commands.yml` (simplificados) y `remote-controller/resources/raw-commands.yml` (directos a `lirc`). Los comandos simplificados permiten enviar argumentos adicionales, dependiendo de cada comando. Para verificar cada comando específicamente, ver sus archivos de configuración.
+La nueva interface permite enviar los comandos descritos en los archivos `resources/commands.yml` (simplificados) y `resources/raw-commands.yml` (directos a `lirc`). Los comandos simplificados permiten enviar argumentos adicionales, dependiendo de cada comando. Para verificar cada comando específicamente, ver sus archivos de configuración.
 
 ## 2019-03-09 - AVS-7, AVS-8 y AVS-9 Reconocimiento de señales IR
 Una vez configurado el sensor (receptor) IR, se realizó la primera configuración de los comandos para una televisión marca LG. A continuación se presenta el procedimiento que se siguió para lograr esto.
@@ -262,7 +287,7 @@ pip3 install click
 Así pues, se definió el primer modo de ejecución (modo "cli"), el cual peuede ser ejecutado de la siguiente manera:
 
 ```bash
-python main.py cli
+python cli.py cli
 ```
 
 ## 2019-03-04 - AVS-6 Circuito principal

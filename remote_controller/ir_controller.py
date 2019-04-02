@@ -4,7 +4,7 @@ import yaml
 
 from remote_controller.command_validator import CommandValidator
 from remote_controller.ir_sender import IRSender
-from remote_controller.errors import FileNotLoadedError
+from remote_controller.errors import FileNotLoadedError, InvalidCommandError
 
 FILE_PATH = os.path.dirname(__file__)
 
@@ -54,7 +54,10 @@ class IRController:
 
     def send_raw_command(self, command):
         print('Attempting {} command...'.format(command))
-        self.__command_validator.validate_raw(command)
+        try:
+            self.__command_validator.validate_raw(command)
+        except InvalidCommandError:
+            print('Command isn\'t registered, but attempting as raw...')
         self.__ir_sender.send_raw(command)
 
     def send_command(self, command, value=None):

@@ -1,3 +1,4 @@
+import sys
 import logging
 
 from waitress import serve
@@ -6,9 +7,8 @@ from flask import Flask, jsonify, request, redirect
 
 from remote_controller.command_handler import CommandHandler
 
+
 app = Flask(__name__)
-command_handler = CommandHandler('lg', True)
-command_handler.load()
 
 
 @app.route('/', methods=['GET'])
@@ -57,14 +57,20 @@ def index():
 
 
 if __name__ == '__main__':
-    app = TransLogger(app, logger_name='api_logger')
+    if len(sys.argv) < 2:
+        print('Please enter a device name, aborting...')
+    else:
+        command_handler = CommandHandler(sys.argv[1], True)
+        command_handler.load()
 
-    logger = logging.getLogger('api_logger')
-    logger.setLevel(logging.DEBUG)
+        app = TransLogger(app, logger_name='api_logger')
 
-    file_handler = logging.FileHandler('api.log')
-    file_handler.setLevel(logging.DEBUG)
+        logger = logging.getLogger('api_logger')
+        logger.setLevel(logging.DEBUG)
 
-    logger.addHandler(file_handler)
+        file_handler = logging.FileHandler('api.log')
+        file_handler.setLevel(logging.DEBUG)
 
-    serve(app, host='0.0.0.0', port=55555)
+        logger.addHandler(file_handler)
+
+        serve(app, host='0.0.0.0', port=55555)
