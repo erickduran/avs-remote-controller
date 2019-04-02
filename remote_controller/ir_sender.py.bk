@@ -1,7 +1,6 @@
 import os
 import time
 import subprocess
-import threading
 
 from remote_controller.errors import InvalidCompositeCommandError
 
@@ -15,9 +14,13 @@ class IRSender:
     def send_raw(self, command):
         bash_command = 'irsend SEND_ONCE {} {}'.format(self.__device, command)
         if not self.__review_mode:
-            thread = threading.Thread(target=os.system, args=[bash_command])
-            thread.daemon = True
-            thread.start()
+            print('Creating subprocess...')
+            process = subprocess.Popen(['irsend', 'SEND_ONCE', self.__device, command])
+            try:
+                out, errors = process.communicate(timeout=1)
+            except subprocess.TimeoutExpired:
+                process.kill()
+                out, errors = process.communicate()
         return [bash_command]
 
     def send(self, command, value):
