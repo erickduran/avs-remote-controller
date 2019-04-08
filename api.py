@@ -60,7 +60,7 @@ if __name__ == '__main__':
     if len(sys.argv) < 2:
         print('Please enter a device name, aborting...')
     else:
-        command_handler = CommandHandler(sys.argv[1], True)
+        command_handler = CommandHandler(sys.argv[1], False)
         command_handler.load()
 
         app = TransLogger(app, logger_name='api_logger')

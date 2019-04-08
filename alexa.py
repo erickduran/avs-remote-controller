@@ -10,7 +10,7 @@ from remote_controller.command_handler import CommandHandler
 
 app = Flask(__name__)
 ask = Ask(app, '/')
-hostname = '10.0.0.10:33333'
+hostname = 'http://10.0.0.10:55555'
 
 
 
