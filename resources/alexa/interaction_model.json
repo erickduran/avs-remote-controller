@@ -115,8 +115,16 @@
                 },
                 {
                     "name": "InputIntent",
-                    "slots": [],
+                    "slots": [
+                        {
+                            "name": "value",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
                     "samples": [
+                        "HDMI {value}",
+                        "entrada {value}",
+                        "entradas {value}",
                         "entradas",
                         "entrada",
                         "input",
