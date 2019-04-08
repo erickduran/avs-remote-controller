@@ -1,5 +1,6 @@
 import sys
 
+import requests
 from waitress import serve
 from flask import Flask
 from flask_ask import Ask, statement, question
@@ -9,6 +10,8 @@ from remote_controller.command_handler import CommandHandler
 
 app = Flask(__name__)
 ask = Ask(app, '/')
+hostname = '10.0.0.10:33333'
+
 
 
 @ask.launch
@@ -24,7 +27,9 @@ def power_intent():
 
 @ask.intent('PowerIntent')
 def power_intent():
-    command_handler.send('POWER')
+    request = {'raw-command': False, 'command': 'POWER'}
+    response = requests.post(hostname, json=request)
+    # command_handler.send('POWER')
     return statement('Listo')
 
 
