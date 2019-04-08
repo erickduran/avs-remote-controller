@@ -151,6 +151,6 @@ if __name__ == '__main__':
         command_handler = CommandHandler(sys.argv[1], False)
         command_handler.load()
         print('Starting on device: {}'.format(sys.argv[1]))
-        serve(app, host='localhost', port=5000)
+        serve(app, host='localhost', port=33333)
 
 
