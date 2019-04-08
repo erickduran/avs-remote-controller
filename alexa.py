@@ -13,7 +13,6 @@ ask = Ask(app, '/')
 hostname = 'http://10.0.0.10:55555'
 
 
-
 @ask.launch
 def start_skill():
     welcome_message = '¿Qué le digo a la tele?'
@@ -21,126 +20,149 @@ def start_skill():
 
 
 @ask.intent('AMAZON.HelpIntent')
-def power_intent():
+def help_intent():
     return statement('Puedes enviar comandos como: encender, canal 10, sube el volumen, etcétera.')
 
 
 @ask.intent('PowerIntent')
 def power_intent():
     request = {'raw-command': False, 'command': 'POWER'}
-    response = requests.post(hostname, json=request)
-    # command_handler.send('POWER')
+    requests.post(hostname, json=request)
     return statement('Listo')
 
 
 @ask.intent('OKIntent')
 def ok_intent():
-    answer = command_handler.send('OK')
+    request = {'raw-command': False, 'command': 'OK'}
+    requests.post(hostname, json=request)
     return statement('Listo')
 
 
 @ask.intent('UndoIntent')
-def ok_intent():
-    answer = command_handler.send('UNDO')
+def undo_intent():
+    request = {'raw-command': False, 'command': 'UNDO'}
+    requests.post(hostname, json=request)
     return statement('Listo')
 
 
 @ask.intent('ListIntent')
-def ok_intent():
-    answer = command_handler.send('LIST')
+def list_intent():
+    request = {'raw-command': False, 'command': 'LIST'}
+    requests.post(hostname, json=request)
     return statement('Listo')
 
 
 @ask.intent('BackIntent')
-def ok_intent():
-    answer = command_handler.send('BACK')
+def back_intent():
+    request = {'raw-command': False, 'command': 'BACK'}
+    requests.post(hostname, json=request)
     return statement('Listo')
 
 
 @ask.intent('InfoIntent')
-def ok_intent():
-    answer = command_handler.send('INFO')
+def info_intent():
+    request = {'raw-command': False, 'command': 'INFO'}
+    requests.post(hostname, json=request)
     return statement('Listo')
 
 
 @ask.intent('ExitIntent')
-def ok_intent():
-    answer = command_handler.send('EXIT')
+def exit_intent():
+    request = {'raw-command': False, 'command': 'EXIT'}
+    requests.post(hostname, json=request)
     return statement('Listo')
 
 
 @ask.intent('MenuIntent')
-def ok_intent():
-    answer = command_handler.send('MENU')
+def menu_intent():
+    request = {'raw-command': False, 'command': 'MENU'}
+    requests.post(hostname, json=request)
     return statement('Listo')
 
 
 @ask.intent('MuteIntent')
-def ok_intent():
-    answer = command_handler.send('MUTE')
+def mute_intent():
+    request = {'raw-command': False, 'command': 'MUTE'}
+    requests.post(hostname, json=request)
     return statement('Listo')
 
 
 @ask.intent('SettingsIntent')
-def ok_intent():
-    answer = command_handler.send('SETTINGS')
+def settings_intent():
+    request = {'raw-command': False, 'command': 'SETTINGS'}
+    requests.post(hostname, json=request)
     return statement('Listo')
 
 
 @ask.intent('InputIntent')
-def ok_intent():
-    answer = command_handler.send('INPUT')
+def input_intent(value):
+    if value is not None:
+        request = {'raw-command': False, 'command': 'INPUT {}'.format(value)}
+    else:
+        request = {'raw-command': False, 'command': 'INPUT'}
+    requests.post(hostname, json=request)
     return statement('Listo')
 
 
 @ask.intent('ScreenRatioIntent')
-def ok_intent():
-    answer = command_handler.send('SCREEN_RATIO')
+def screen_ratio_intent():
+    request = {'raw-command': False, 'command': 'SCREEN_RATIO'}
+    requests.post(hostname, json=request)
     return statement('Listo')
 
 
 @ask.intent('MoveUpIntent')
-def ok_intent():
-    answer = command_handler.send('MOVE_UP')
+def move_up_intent():
+    request = {'raw-command': False, 'command': 'MOVE_UP'}
+    requests.post(hostname, json=request)
     return statement('Listo')
 
 
 @ask.intent('MoveDownIntent')
-def ok_intent():
-    answer = command_handler.send('MOVE_DOWN')
+def move_down_intent():
+    request = {'raw-command': False, 'command': 'MOVE_DOWN'}
+    requests.post(hostname, json=request)
     return statement('Listo')
 
 
 @ask.intent('MoveLeftIntent')
-def ok_intent():
-    answer = command_handler.send('MOVE_LEFT')
+def move_left_intent():
+    request = {'raw-command': False, 'command': 'MOVE_LEFT'}
+    requests.post(hostname, json=request)
     return statement('Listo')
 
 
 @ask.intent('MoveRightIntent')
-def ok_intent():
-    answer = command_handler.send('MOVE_RIGHT')
+def move_right_intent():
+    request = {'raw-command': False, 'command': 'MOVE_RIGHT'}
+    requests.post(hostname, json=request)
     return statement('Listo')
 
 
 @ask.intent('ChannelIntent')
 def channel_intent(channel):
-    command_handler.send('CHANNEL {}'.format(channel))
+    request = {'raw-command': False, 'command': 'CHANNEL {}'.format(channel)}
+    requests.post(hostname, json=request)
     return statement('Listo')
 
 
 @ask.intent('VolumeUpIntent')
 def volume_up_intent(value):
-    command_handler.send('VOLUME_UP {}'.format(value))
+    if value is not None:
+        request = {'raw-command': False, 'command': 'VOLUME_UP {}'.format(value)}
+    else:
+        request = {'raw-command': False, 'command': 'VOLUME_UP'}
+    requests.post(hostname, json=request)
     return statement('Listo')
 
 
 @ask.intent('VolumeDownIntent')
 def volume_down_intent(value):
     if value is not None:
-        command_handler.send('VOLUME_DOWN {}'.format(value))
+        request = {'raw-command': False, 'command': 'VOLUME_DOWN {}'.format(value)}
     else:
-        command_handler.send('VOLUME_DOWN')
+        request = {'raw-command': False, 'command': 'VOLUME_DOWN'}
+    requests.post(hostname, json=request)
     return statement('Listo')
 
 

@@ -31,7 +31,9 @@ commands:
     args: null
   INPUT:
     description: This command opens the input source menu on the TV.
-    args: null
+    args:
+      OPTIONAL: true
+      VALUE: int
   SCREEN_RATIO:
     description: This command changes the screen ratio on the TV.
     args: null

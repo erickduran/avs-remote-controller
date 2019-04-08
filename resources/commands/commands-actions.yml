@@ -21,6 +21,7 @@ commands:
     raw-command: KEY_CONFIG
   INPUT:
     raw-command: KEY_VIDEO
+    composite: repetition
   SCREEN_RATIO:
     raw-command: KEY_SCREEN
   CHANNEL:
