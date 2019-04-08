@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "a la tele",
+            "invocationName": "control",
             "intents": [
                 {
                     "name": "AMAZON.CancelIntent",
