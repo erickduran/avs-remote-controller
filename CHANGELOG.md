@@ -1,6 +1,24 @@
 ﻿# Changelog
 En este archivo se documentarán todos los cambios relevantes realizados en todos los ambientes para el desarrollo del presente proyecto. Esto incluye tanto instalaciones como desarrollo del código.
 
+## 2019-04-07 - AVS-17 Preparación de ambiente con el SDK de Alexa (AVS)
+
+Se compiló e instaló el SDK de Amazon AVS utilizando las instrucciones definidas en el repositorio:
+
+https://github.com/alexa/avs-device-sdk
+
+Esto con el objetivo de incorporar el kit de _AudioSmart_ al circuito actual. Ahora este circuito podrá actuar como un dispositivo Alexa.
+
+## 2019-04-07 - AVS-37 Solución HTTPS
+Se configuró el _endpoint_ actual del API para funcionar directamente con HTTPS con el objetivo de ser llamado por _Alexa Skills_. Para esto, se configuró un proxy de `nginx` con `certbot` para funcionar con un certificado de `Let's Encrypt Authority` y cumplir con los lineamientos establecidos por Amazon.
+
+El nuevo _endpoint_ es:
+
+```bash
+https://vcrc.erickduran.com/
+```
+
+
 ## 2019-03-25 - AVS-36 Traducción de oraciones a instrucciones
 Se implementó el código para la interacción con _Alexa Voice Service_, el cual utiliza la librería `flask-ask` para facilitar la interacción del API. El código puede ser ejecutado mediante el siguiente comando:
 
