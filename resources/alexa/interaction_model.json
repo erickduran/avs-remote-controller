@@ -1,116 +1,119 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "control",
+            "invocationName": "controller",
             "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": [
+                        "fallback"
+                    ]
+                },
                 {
                     "name": "AMAZON.CancelIntent",
                     "samples": [
-                        "cancelar"
+                        "cancel"
                     ]
                 },
                 {
                     "name": "AMAZON.HelpIntent",
                     "samples": [
-                        "ayuda"
+                        "help"
                     ]
                 },
                 {
                     "name": "AMAZON.StopIntent",
                     "samples": [
-                        "detener"
+                        "stop"
                     ]
                 },
                 {
                     "name": "AMAZON.NavigateHomeIntent",
                     "samples": [
-                        "regresar al inicio"
+                        "go home"
                     ]
                 },
                 {
                     "name": "PowerIntent",
                     "slots": [],
                     "samples": [
-                        "prenda",
-                        "prender",
-                        "apague",
-                        "apagar",
-                        "encienda",
-                        "encender"
+                        "off",
+                        "on",
+                        "power off",
+                        "power on"
                     ]
                 },
                 {
                     "name": "OKIntent",
                     "slots": [],
                     "samples": [
-                        "OK",
-                        "está bien",
-                        "oquei",
-                        "okay"
+                        "it's ok",
+                        "okay",
+                        "OK"
                     ]
                 },
                 {
                     "name": "ListIntent",
                     "slots": [],
                     "samples": [
-                        "lista"
+                        "list"
                     ]
                 },
                 {
                     "name": "UndoIntent",
                     "slots": [],
                     "samples": [
-                        "deshacer"
+                        "undo"
                     ]
                 },
                 {
                     "name": "BackIntent",
                     "slots": [],
                     "samples": [
-                        "regresar",
-                        "regresa",
-                        "atrás"
+                        "back"
                     ]
                 },
                 {
                     "name": "InfoIntent",
                     "slots": [],
                     "samples": [
-                        "información"
+                        "information",
+                        "info"
                     ]
                 },
                 {
                     "name": "ExitIntent",
                     "slots": [],
                     "samples": [
-                        "salir",
-                        "sal"
+                        "out",
+                        "exit"
                     ]
                 },
                 {
                     "name": "MenuIntent",
                     "slots": [],
                     "samples": [
-                        "menú",
-                        "ve al menú",
-                        "abre el menú"
+                        "give me the menu",
+                        "open menu",
+                        "go menu",
+                        "menu",
+                        "open the menu"
                     ]
                 },
                 {
                     "name": "MuteIntent",
                     "slots": [],
                     "samples": [
-                        "silencio",
-                        "quita el sonido",
-                        "apaga el sonido"
+                        "mute",
+                        "shut up"
                     ]
                 },
                 {
                     "name": "SettingsIntent",
                     "slots": [],
                     "samples": [
-                        "ajustes",
-                        "configuración"
+                        "configuration",
+                        "settings"
                     ]
                 },
                 {
@@ -122,22 +125,21 @@
                         }
                     ],
                     "samples": [
-                        "HDMI {value}",
-                        "entrada {value}",
-                        "entradas {value}",
-                        "entradas",
-                        "entrada",
+                        "HDMI",
+                        "inputs",
                         "input",
-                        "HDMI"
+                        "inputs {value}",
+                        "input {value}",
+                        "HDMI {value}"
                     ]
                 },
                 {
                     "name": "ScreenRatioIntent",
                     "slots": [],
                     "samples": [
-                        "pantalla",
-                        "proporción",
-                        "proporción de pantalla"
+                        "screen ratio",
+                        "ratio",
+                        "screen"
                     ]
                 },
                 {
@@ -149,13 +151,12 @@
                         }
                     ],
                     "samples": [
-                        "ve al {channel}",
-                        "cambia al {channel}",
-                        "canal número {channel}",
-                        "número {channel}",
-                        "vaya al {channel}",
-                        "canal {channel}",
-                        "ve al canal {channel}"
+                        "change channel {channel}",
+                        "channel {channel}",
+                        "go to channel {channel}",
+                        "number {channel}",
+                        "channel number {channel}",
+                        "go to {channel}"
                     ]
                 },
                 {
@@ -167,12 +168,11 @@
                         }
                     ],
                     "samples": [
-                        "sube el volumen {value}",
-                        "sube el volumen",
-                        "súbele {value} al volumen",
-                        "aumenta el volumen por {value}",
-                        "aumenta el volumen",
-                        "aumenta {value} el volumen"
+                        "volume up by {value}",
+                        "volume up",
+                        "turn the volume up by {value}",
+                        "turn the volume up",
+                        "volume up {value}"
                     ]
                 },
                 {
@@ -184,44 +184,43 @@
                         }
                     ],
                     "samples": [
-                        "baja el volumen {value}",
-                        "baja el volumen",
-                        "bájale {value} al volumen",
-                        "disminuye el volumen por {value}",
-                        "disminuye el volumen",
-                        "disminuye {value} el volumen"
+                        "volume up by {value}",
+                        "volume down {value}",
+                        "volume down",
+                        "turn the volume down by {value}",
+                        "turn the volume down"
                     ]
                 },
                 {
                     "name": "MoveUpIntent",
                     "slots": [],
                     "samples": [
-                        "arriba",
-                        "ve arriba"
+                        "up",
+                        "go up"
                     ]
                 },
                 {
                     "name": "MoveDownIntent",
                     "slots": [],
                     "samples": [
-                        "abajo",
-                        "ve abajo"
+                        "down",
+                        "go down"
                     ]
                 },
                 {
                     "name": "MoveRightIntent",
                     "slots": [],
                     "samples": [
-                        "derecha",
-                        "ve a la derecha"
+                        "right",
+                        "go right"
                     ]
                 },
                 {
                     "name": "MoveLeftIntent",
                     "slots": [],
                     "samples": [
-                        "izquierda",
-                        "ve a la izquierda"
+                        "go left",
+                        "left"
                     ]
                 }
             ],
