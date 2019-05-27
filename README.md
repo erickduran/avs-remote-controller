@@ -75,6 +75,11 @@ Some available options are:
 
 __NOTE:__ Please note that it is necessary to have the `lirc` configuration for your device prior to using any of the modes. To create this configuration, you can use the `training` mode and copy the generated `conf` file to `/etc/lirc/lircd.conf.d/`.
 
+You may see an execution example below for the CLI:
+
+![CLI](docs/img/04-cli.png)
+
+
 ## Running the tests
 For this project, we used the `unittest` framework to create our unit tests. In order to run them, run the following command:
 
