@@ -1,3 +1,5 @@
+# alexa.py
+"""This is the definition of the API class for Alexa Voice Service."""
 import sys
 
 import requests
@@ -13,17 +15,21 @@ ask = Ask(app, '/')
 hostname = 'http://10.0.0.10:55555'
 
 
+# Event to start interaction with the controller
+# NOTE: just for spanish
 @ask.launch
 def start_skill():
     welcome_message = '¿Qué le digo a la tele?'
     return question(welcome_message)
 
 
+# Intent for help with the interaction
 @ask.intent('AMAZON.HelpIntent')
 def help_intent():
     return statement('Puedes enviar comandos como: encender, canal 10, sube el volumen, etcétera.')
 
 
+# Definition of ALL the basic command interactions
 @ask.intent('PowerIntent')
 def power_intent():
     request = {'raw-command': False, 'command': 'POWER'}
@@ -173,6 +179,7 @@ if __name__ == '__main__':
         command_handler = CommandHandler(sys.argv[1], False)
         command_handler.load()
         print('Starting on device: {}'.format(sys.argv[1]))
+        # Server to run, definition of the port
         serve(app, host='localhost', port=33333)
 
 
