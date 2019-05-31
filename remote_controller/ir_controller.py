@@ -1,3 +1,7 @@
+# ir_controller.py
+"""This is the definition of the IRController class. This class delegates the commands to the IRSender
+after the necessary validations are passed. It also loads the necessary configuration files.
+"""
 import os
 
 import yaml
@@ -20,6 +24,7 @@ class IRController:
         self.__command_validator = None
         self.__ir_sender = None
 
+    # Load all the necessary configuration YAML files
     def load_config(self):
         with open(os.path.join(FILE_PATH, RAW_COMMANDS_PATH), 'r') as stream:
             try:
@@ -42,6 +47,7 @@ class IRController:
                 actions = None
                 print(exception)
 
+        # Errors for bad files
         if commands is not None and raw_commands is not None:
             self.__command_validator = CommandValidator(self.__device, commands, raw_commands)
         else:
@@ -52,6 +58,7 @@ class IRController:
         else:
             raise FileNotLoadedError('Actions file not loaded correctly.')
 
+    # Validate, inform and send a raw command
     def send_raw_command(self, command):
         print('Attempting {} command...'.format(command))
         try:
@@ -60,6 +67,7 @@ class IRController:
             print('Command isn\'t registered, but attempting as raw...')
         self.__ir_sender.send_raw(command)
 
+    # Validate, inform and send a composite command
     def send_command(self, command, value=None):
         if value:
             print('Attempting {} command with value of {}...'.format(command, value))
@@ -68,5 +76,6 @@ class IRController:
         self.__command_validator.validate(command, value)
         self.__ir_sender.send(command, value)
 
+    # Inform of a help message for a command
     def help(self, command):
         return self.__command_validator.exists(command)[2]
