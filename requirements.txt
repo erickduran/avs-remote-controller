@@ -6,6 +6,6 @@ MarkupSafe==0.23
 Paste==3.0.8
 pyyaml>=4.2b1
 six==1.12.0
-waitress==1.2.1
+waitress==1.4.0
 Werkzeug>=0.11.15
 clipboard>=0.0.4
